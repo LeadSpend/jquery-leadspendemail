@@ -3,9 +3,24 @@
 <head>
   <meta charset="utf-8">
   <title>LeadSpend jQuery.getJSON Testing</title>
-  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="//code.jquery.com/jquery-1.9.1.js"></script>
 </head>
 <body>
-
+<script>
+(function() {
+  var leadspendAPI = "https://primary.api.leadspend.com/v2/validity/";
+  var emailAddress = "sbrown2594@gmail.com";
+  var timeout = 5;
+  $.getJSON( leadspendAPI + encodeURIComponent( emailAddress ) + "?timeout=" + timeout + "&callback=?", null, {})
+  .done( function(data, textStatus, jqXHR) {
+    console.log( data );
+    console.log( textStatus );
+    console.log( jqXHR );
+  })
+  .fail(function( data ) {
+  	console.log("fail");
+  });
+})();
+</script>
 </body>
 </html>
