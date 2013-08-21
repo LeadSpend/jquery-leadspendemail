@@ -1,4 +1,4 @@
-(function($) {
+(function($){
 	$.fn.leadspend = function(emailAddress){
 		var leadspendAPI = "https://primary.api.leadspend.com/v2/validity/";
 		var timeout = 5;
@@ -14,4 +14,4 @@
 			console.log("fail");
 		});
 	}
-})(jQuery);
+})( jQuery );
