@@ -21,5 +21,3 @@
 	};
 	
 }( jQuery ));
-
-$("input").leadspend();
