@@ -3,7 +3,8 @@
 	var timeout = 5;
 	
 	var jsonpValidateEmail = function() {
-		console.log("jsonpValidateEmail called");
+		console.log("jsonpValidateEmail called.  Val is:");
+		console.log(this.val())
 		/*if (emailAddress){
 			$.getJSON( leadspendAPI + encodeURIComponent( emailAddress ) + "?timeout=" + timeout + "&callback=?", null, {
 				emailAddress: emailAddress
@@ -26,4 +27,3 @@
 	};
 }( jQuery ));
 
-$("#EMAIL_FIELD_ID").leadSpendEmail();
