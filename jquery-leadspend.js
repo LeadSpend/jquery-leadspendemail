@@ -25,5 +25,3 @@
 		return this;
 	};
 }( jQuery ));
-
-$("#EMAIL_FIELD_ID").leadSpendEmail();
