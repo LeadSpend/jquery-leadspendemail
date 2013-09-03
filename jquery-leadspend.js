@@ -2,10 +2,10 @@
 	var leadspendAPI = "https://primary.api.leadspend.com/v2/validity/";
 	var timeout = 5;
 	
-	var jsonpValidateEmail = function( emailAddress ) {
+	var jsonpValidateEmail = function() {
 		console.log("jsonpValidateEmail called");
 		console.log("email address was: "+emailAddress)
-		if (emailAddress){
+		/*if (emailAddress){
 			$.getJSON( leadspendAPI + encodeURIComponent( emailAddress ) + "?timeout=" + timeout + "&callback=?", null, {
 				emailAddress: emailAddress
 			}).done( function(data, textStatus, jqXHR) {
@@ -16,14 +16,13 @@
 			}).fail(function( data ) {
 				console.log("fail");
 			});
-		}
+		}*/
 	}
 	
 	$.fn.leadSpendEmail = function() {
 		console.log("leadSpendEmail init");
-		emailAddress = this.val();
 		
-		this.on( "blur", jsonpValidateEmail( emailAddress ) );
+		this.on( "blur", jsonpValidateEmail() );
 
 		return this;
 	};
