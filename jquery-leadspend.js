@@ -20,7 +20,7 @@
 	
 	$.fn.leadSpendEmail = function() {
 		
-		this.on( "focusout", jsonpValidateEmail() );
+		this.on( "focusout", function(){jsonpValidateEmail();});//jsonpValidateEmail() );
 
 		return this;
 	};
