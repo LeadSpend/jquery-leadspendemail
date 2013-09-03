@@ -3,7 +3,7 @@
 	var timeout = 5;
 		
 	$.fn.leadspend = function() {
-		alert("Hello world!");
+		console.log(this.val())
 		
 		/*$.getJSON( leadspendAPI + encodeURIComponent( emailAddress ) + "?timeout=" + timeout + "&callback=?", null, {
 			emailAddress: emailAddress
@@ -19,5 +19,4 @@
 		
 		return this;
 	};
-	
 }( jQuery ));
