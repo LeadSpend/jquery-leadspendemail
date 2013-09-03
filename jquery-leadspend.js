@@ -26,5 +26,4 @@
 	};
 }( jQuery ));
 
-
 $("#EMAIL_FIELD_ID").leadSpendEmail();
