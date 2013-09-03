@@ -3,9 +3,14 @@
 	<head>
 		<meta charset="utf-8">
 		<title>LeadSpend jQuery.getJSON Testing</title>
-		
-		<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+		<script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.js"></script>
 		<script type="text/javascript" src="../jquery-leadspend.js"></script>
+		
+		<script>
+		  $(document).ready(function(){
+			  $("#EMAIL_FIELD_ID").leadSpendEmail();
+		  });
+		</script>
 	</head>
 	<body>
 		<form>
