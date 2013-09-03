@@ -2,8 +2,8 @@
 	var leadspendAPI = "https://primary.api.leadspend.com/v2/validity/";
 	var timeout = 5;
 		
-	$.fn.leadspend = function( emailAddress ) {
-		alert("Hello " + emailAddress + "!");
+	$.fn.leadspend = function() {
+		alert("Hello world!");
 		
 		/*$.getJSON( leadspendAPI + encodeURIComponent( emailAddress ) + "?timeout=" + timeout + "&callback=?", null, {
 			emailAddress: emailAddress
@@ -21,3 +21,5 @@
 	};
 	
 }( jQuery ));
+
+$("input").leadspend();
