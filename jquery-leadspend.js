@@ -4,7 +4,6 @@
 	
 	var jsonpValidateEmail = function() {
 		console.log("jsonpValidateEmail called");
-		console.log("email address was: "+emailAddress)
 		/*if (emailAddress){
 			$.getJSON( leadspendAPI + encodeURIComponent( emailAddress ) + "?timeout=" + timeout + "&callback=?", null, {
 				emailAddress: emailAddress
