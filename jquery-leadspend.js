@@ -21,7 +21,7 @@
 	$.fn.leadSpendEmail = function() {
 		console.log("leadSpendEmail init");
 		
-		this.on( "focusout", function(){console.log("hello world");});//jsonpValidateEmail() );
+		this.on( "focusout", function(){alert("hello world");});//jsonpValidateEmail() );
 
 		return this;
 	};
