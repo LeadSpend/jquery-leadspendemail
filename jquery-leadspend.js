@@ -23,7 +23,7 @@
 		console.log("leadSpendEmail init");
 		emailAddress = this.val();
 		
-		this.on( "focusout", jsonpValidateEmail( emailAddress ) );
+		this.on( "blur", jsonpValidateEmail( emailAddress ) );
 
 		return this;
 	};
