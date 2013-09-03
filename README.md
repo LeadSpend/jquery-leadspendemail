@@ -1,0 +1,2 @@
+LeadSpend jQuery Extension Documentation
+--------------------
