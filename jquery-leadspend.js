@@ -9,12 +9,12 @@
 		
 		if (emailAddress){
 			$.getJSON( leadspendAPI + encodeURIComponent( emailAddress ) + "?timeout=" + timeout + "&callback=?", null, {
-				emailAddress: emailAddress
+				emailAddress: emailAddress//,
+				//emailInput: emailInput
 			}).done( function(data, textStatus, jqXHR) {
 				console.log( data );
-				console.log( textStatus );
-				console.log( jqXHR );
 				console.log( emailAddress );
+				console.log( emailInput );
 			}).fail(function( data ) {
 				console.log("fail");
 			});
