@@ -40,7 +40,9 @@
 
 	LeadSpendEmail.prototype.init = function () {
 		console.log( this.element );
-		return $(this.element).on( "focusout", this.jsonpValidateEmail() );
+		console.log( this.options );
+		var lse = this;
+		return $(this.element).on( "focusout", function() { lse.jsonpValidateEmail() } );
 	};
 	
 	// A lightweight plugin wrapper around the constructor, 
