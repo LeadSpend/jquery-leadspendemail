@@ -47,9 +47,10 @@
 		console.log( "Testing reduncancy of $(this.element): ");
 		console.log( this.element );
 		console.log( $(this.elelment) );
+		var lsInstance = this;
 		return $(this.element).on( "focusout", function() {
-			console.log( "THIS From LeadSpendEmail.prototype.init bind:" );
-			console.log( this ); } );
+			console.log( "lsINSTANCE From LeadSpendEmail.prototype.init bind:" );
+			console.log( lsInstance ); } );
 	};
 	
 	// A lightweight plugin wrapper around the constructor, 
