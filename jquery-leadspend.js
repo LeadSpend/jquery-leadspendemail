@@ -39,6 +39,7 @@
 	};
 
 	LeadSpendEmail.prototype.init = function () {
+		console.log( this.element );
 		return $(this.element).on( "focusout", this.jsonpValidateEmail() );
 	};
 	
