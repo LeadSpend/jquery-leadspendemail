@@ -18,8 +18,25 @@
 		this._defaults = defaults;
         this._name = pluginName;
         
-		this.jsonpValidateEmail = function() {
-			console.log("jsonpValidateEmail called");
+		this._jsonpValidateEmail = function( emailAddress ) {
+			console.log( "_jsonpValidateEmail called" );
+			var lsInstance = this; //define this as lsInstance to faciliate access within callback context
+			
+			if ( emailAddress ){
+				$.getJSON( this.options.leadspendApi + encodeURIComponent( emailAddress ) + "?timeout=" + this.options.timeout + "&callback=?", null )
+					.done( function( data, textStatus, jqXHR ) {
+						console.log( data );			// json response
+						//console.log( emailAddress );  // email address from jsonpValidateEmail function
+						//console.log( lsInstance );	// instance of LeadSpendEmail object from jsonpValidateEmail function
+					})
+					.fail(function( data ) {
+						console.log("fail");
+					});
+			}
+		};
+		
+		this.validateEmailInput = function(){
+			console.log( "validateEmailInput called" );
 			// CHECK FOR EXISTING .leadSpendEmail-result field with #EMAIL_FIELD_ID-RESULT ID
 			// if !exists:
 			// 		create it
@@ -30,20 +47,8 @@
 			//		else
 			//			continue
 			
-			emailAddress = $(this.element).val();
-			var lsInstance = this; //define this as lsInstance to faciliate access within callback context
-			
-			if (emailAddress){
-				$.getJSON( this.options.leadspendApi + encodeURIComponent( emailAddress ) + "?timeout=" + this.options.timeout + "&callback=?", null)
-					.done( function(data, textStatus, jqXHR) {
-						console.log( data );			// json response
-						//console.log( emailAddress );  // email address from jsonpValidateEmail function
-						//console.log( lsInstance );	// instance of LeadSpendEmail object from jsonpValidateEmail function
-					})
-					.fail(function( data ) {
-						console.log("fail");
-					});
-			}
+			emailAddress = $( this.element ).val();
+			this._jsonpValidateEmail( emailAddress );
 		};
 
 		
@@ -52,8 +57,7 @@
 
 	// Code to be called on LSE init
 	LeadSpendEmail.prototype.init = function () {
-		//var lsInstance = this;  //define this as lsInstance to faciliate access within callback context
-		return $(this.element).on( "focusout", $.proxy(this.jsonpValidateEmail, this) );//function() { lsInstance.jsonpValidateEmail() } );
+		return $(this.element).on( "focusout", $.proxy(this.validateEmailInput, this) ); // use jQuery.proxy to enforce proper context within callback
 	};
 	
 	// A lightweight plugin wrapper around the constructor, 
