@@ -26,11 +26,12 @@
 			emailAddress = $(this.element).val();
 			
 			if (emailAddress){
-				$.getJSON( this.options.leadspendApi + encodeURIComponent( emailAddress ) + "?timeout=" + this.options.timeout + "&callback=?", null
+				$.getJSON( this.options.leadspendApi + encodeURIComponent( emailAddress ) + "?timeout=" + this.options.timeout + "&callback=?", null,
+				{ lsInstance: this }
 				).done( function(data, textStatus, jqXHR) {
 					console.log( data );
 					console.log( emailAddress );
-					console.log( this );
+					console.log( lsInstance );
 				}).fail(function( data ) {
 					console.log("fail");
 				});
@@ -43,7 +44,7 @@
 
 	// Code to be called on LSE init
 	LeadSpendEmail.prototype.init = function () {
-		var lsInstance = this;
+		var lsInstance = this;  //define this as lsInstance to faciliate access within callback context
 		return $(this.element).on( "focusout", function() { lsInstance.jsonpValidateEmail() } );
 	};
 	
