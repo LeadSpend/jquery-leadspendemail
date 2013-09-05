@@ -14,26 +14,34 @@
 	
 	function LeadSpendEmail( element, options){
 		this.element = element;
-		this.options = $.extend( {}, defaults, options)
+		this.options = $.extend( {}, defaults, options );
 		this._defaults = defaults;
         this._name = pluginName;
         
 		this.jsonpValidateEmail = function() {
-			console.log( "THIS From LeadSpendEmail.jsonpValidateEmail call:" );
-			console.log( this );
-			console.log("jsonpValidateEmail called.  Email address val is:");
-			console.log( $(this.element).val() )
+			// CHECK FOR EXISTING .leadSpendEmail-result field with #EMAIL_FIELD_ID-RESULT ID
+			// if !exists:
+			// 		create it
+			// elif val=pending
+			// 		check email address being validated
+			//		if same address
+			//			return
+			//		else
+			//			continue
+			
 			emailAddress = $(this.element).val();
-			var lsInstance = this;
+			var lsInstance = this; //define this as lsInstance to faciliate access within callback context
+			
 			if (emailAddress){
-				$.getJSON( this.options.leadspendApi + encodeURIComponent( emailAddress ) + "?timeout=" + this.options.timeout + "&callback=?", null
-				).done( function(data, textStatus, jqXHR) {
-					console.log( data );
-					console.log( emailAddress );
-					console.log( lsInstance );
-				}).fail(function( data ) {
-					console.log("fail");
-				});
+				$.getJSON( this.options.leadspendApi + encodeURIComponent( emailAddress ) + "?timeout=" + this.options.timeout + "&callback=?", null)
+					.done( function(data, textStatus, jqXHR) {
+						//console.log( data );			// json response
+						//console.log( emailAddress );  // email address from jsonpValidateEmail function
+						//console.log( lsInstance );	// instance of LeadSpendEmail object from jsonpValidateEmail function
+					})
+					.fail(function( data ) {
+						console.log("fail");
+					});
 			}
 		};
 
@@ -43,8 +51,8 @@
 
 	// Code to be called on LSE init
 	LeadSpendEmail.prototype.init = function () {
-		var lsInstance = this;  //define this as lsInstance to faciliate access within callback context
-		return $(this.element).on( "focusout", function() { lsInstance.jsonpValidateEmail() } );
+		//var lsInstance = this;  //define this as lsInstance to faciliate access within callback context
+		return $(this.element).on( "focusout", $.proxy(this.jsonpValidateEmail, this) );//function() { lsInstance.jsonpValidateEmail() } );
 	};
 	
 	// A lightweight plugin wrapper around the constructor, 
@@ -60,5 +68,5 @@
 }( jQuery, window, document ));
 
 $(document).ready(function(){
-	$(".LeadSpendEmail").LeadSpendEmail();
+	$(".leadSpendEmail").LeadSpendEmail();
 });
