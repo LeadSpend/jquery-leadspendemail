@@ -48,7 +48,7 @@
 			console.log( "_jsonpValidateEmailFail called :(" );
 		};
 		
-		// 
+		// Main email validation function.  Bound to focusout event of input.
 		this.validateEmailInput = function(){
 			console.log( "validateEmailInput called" );
 			// CHECK FOR EXISTING .leadSpendEmail-result field with #EMAIL_FIELD_ID-RESULT ID
