@@ -19,6 +19,7 @@
         this._name = pluginName;
         
 		this.jsonpValidateEmail = function() {
+			console.log("jsonpValidateEmail called");
 			// CHECK FOR EXISTING .leadSpendEmail-result field with #EMAIL_FIELD_ID-RESULT ID
 			// if !exists:
 			// 		create it
