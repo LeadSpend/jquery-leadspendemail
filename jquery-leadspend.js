@@ -26,7 +26,7 @@
 			emailAddress = $(this.element).val();
 			
 			if (emailAddress){
-				$.getJSON( leadspendAPI + encodeURIComponent( emailAddress ) + "?timeout=" + timeout + "&callback=?", null
+				$.getJSON( this.options.leadspendApi + encodeURIComponent( emailAddress ) + "?timeout=" + this.options.timeout + "&callback=?", null
 				).done( function(data, textStatus, jqXHR) {
 					console.log( data );
 					console.log( emailAddress );
