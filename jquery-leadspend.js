@@ -87,5 +87,5 @@
 
 // Validate all leadSpendEmail fields by default
 $(document).ready(function(){
-	$(".leadSpendEmail").LeadSpendEmail().attr("value", "sbrown2594@gmail.com");
+	$(".leadSpendEmail").LeadSpendEmail();
 });
