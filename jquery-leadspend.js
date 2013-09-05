@@ -36,7 +36,7 @@
 			if (emailAddress){
 				$.getJSON( this.options.leadspendApi + encodeURIComponent( emailAddress ) + "?timeout=" + this.options.timeout + "&callback=?", null)
 					.done( function(data, textStatus, jqXHR) {
-						//console.log( data );			// json response
+						console.log( data );			// json response
 						//console.log( emailAddress );  // email address from jsonpValidateEmail function
 						//console.log( lsInstance );	// instance of LeadSpendEmail object from jsonpValidateEmail function
 					})
