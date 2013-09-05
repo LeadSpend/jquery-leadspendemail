@@ -53,7 +53,9 @@
 			console.log( "validateEmailInput called" );
 			
 			if ( $( $( this.element ).attr( "id" ) + "-result").length == 0 ){// TODO: extend to support elements without IDs --> need UUID or global counter?
-				this.resultElement = $( this.element ).after( "<input class=\"leadSpendEmail-result\" id=\"" + $( this.element ).attr( "id" ) + "-result\">");  // TODO: don't love hardcoding strings...
+				resultElementID = + $( this.element ).attr( "id" ) + "-result";
+				$( this.element ).after( "<input class=\"leadSpendEmail-result\" id=\"" + resultElementID + "\">");  // TODO: don't love hardcoding strings...
+				this.resultElement = $( "#" + resultElementID );
 				console.log(this.resultElement);
 			}
 			
