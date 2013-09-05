@@ -26,19 +26,19 @@
 			if ( emailAddress ){
 				$.getJSON( this.options.leadspendApi + encodeURIComponent( emailAddress ) + "?timeout=" + this.options.timeout + "&callback=?", null )
 					.done( function( data, textStatus, jqXHR ) {
-						console.log( data );			// json response
-						console.log( emailAddress );  // email address from jsonpValidateEmail function
-						console.log( lsInstance.element );	// instance of LeadSpendEmail object from jsonpValidateEmail function
+						$.proxy(this._jsonpValidateEmailDone, this)
 					})
 					.fail(function( data ) {
-						console.log("fail");
+						console.log( "fail" );
 					});
 			}
 		};
 		
 		// Function to be called on completion of jsonp email validation call
 		this._jsonpValidateEmailDone = function(){
-			
+			console.log( data );			// json response
+			console.log( emailAddress );  // email address from jsonpValidateEmail function
+			console.log( lsInstance.element );	// instance of LeadSpendEmail object from jsonpValidateEmail function
 		};
 		
 		// Function to be called on fail of jsonp email validation call
