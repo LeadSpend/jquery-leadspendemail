@@ -9,7 +9,8 @@
 	var pluginName = 'LeadSpendEmail',
 	defaults = {
 		leadspendApi: "https://primary.api.leadspend.com/v2/validity/",
-		timeout: 5
+		timeout: 5,
+		resultInputSuffix: "-result"
 	};
 	
 	// Constructor
@@ -52,9 +53,14 @@
 		this.validateEmailInput = function(){
 			console.log( "validateEmailInput called" );
 			
-			if ( $( $( this.element ).attr( "id" ) + "-result").length == 0 ){// TODO: extend to support elements without IDs --> need UUID or global counter?
-				resultElementID = $( this.element ).attr( "id" ) + "-result";
-				$( this.element ).after( "<input class=\"leadSpendEmail-result\" id=\"" + resultElementID + "\">");  // TODO: don't love hardcoding strings...
+			if ( $( $( this.element ).attr( "id" ) + "-result").length == 0 ){	// TODO: extend to support elements without IDs --> need UUID or global counter?
+				resultElementID = $( this.element ).attr( "id" ) + this.options.resultInputSuffix;
+				resultElementClass = "leadSpendEmail" + this.options.resultInputSuffix;
+				
+				// Create the hidden result input to store validity result
+				$( this.element ).after( "<input class=\"" + resultElementClass + "\" id=\"" + resultElementID + "\">");
+				
+				// Store a reference to the hidden result imput
 				this.resultElement = $( "#" + resultElementID );
 				console.log(this.resultElement);
 			}
