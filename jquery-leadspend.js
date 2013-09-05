@@ -24,10 +24,9 @@
 			console.log("jsonpValidateEmail called.  Email address val is:");
 			console.log( $(this.element).val() )
 			emailAddress = $(this.element).val();
-			
+			var lsInstance = this;
 			if (emailAddress){
-				$.getJSON( this.options.leadspendApi + encodeURIComponent( emailAddress ) + "?timeout=" + this.options.timeout + "&callback=?", null,
-				{ lsInstance: this }
+				$.getJSON( this.options.leadspendApi + encodeURIComponent( emailAddress ) + "?timeout=" + this.options.timeout + "&callback=?", null
 				).done( function(data, textStatus, jqXHR) {
 					console.log( data );
 					console.log( emailAddress );
