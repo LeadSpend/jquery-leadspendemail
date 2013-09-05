@@ -22,7 +22,9 @@
 	};
 	
 	LeadSpendEmail.jsonpValidateEmail = function() {
-		console.log("jsonpValidateEmail called.  Email address val is:");
+		console.log( "THIS From LeadSpendEmail.jsonpValidateEmail call:" );
+		console.log( this );
+		/*console.log("jsonpValidateEmail called.  Email address val is:");
 		console.log( this.element.val() )
 		emailAddress = this.element.val();
 		
@@ -35,14 +37,18 @@
 			}).fail(function( data ) {
 				console.log("fail");
 			});
-		}
+		}*/
 	};
 
 	LeadSpendEmail.prototype.init = function () {
+		console.log( "THIS From LeadSpendEmail.prototype.init:" );
+		console.log( this );
+		console.log( "Testing reduncancy of $(this.element): ");
 		console.log( this.element );
-		console.log( this.options );
-		var lse = this;
-		return $(this.element).on( "focusout", function() { lse.jsonpValidateEmail() } );
+		console.log( $(this.elelment) );
+		return $(this.element).on( "focusout", function() {
+			console.log( "THIS From LeadSpendEmail.prototype.init bind:" );
+			console.log( this ); } );
 	};
 	
 	// A lightweight plugin wrapper around the constructor, 
