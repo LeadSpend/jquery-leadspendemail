@@ -21,9 +21,9 @@
 		this.jsonpValidateEmail = function() {
 			console.log( "THIS From LeadSpendEmail.jsonpValidateEmail call:" );
 			console.log( this );
-			/*console.log("jsonpValidateEmail called.  Email address val is:");
+			console.log("jsonpValidateEmail called.  Email address val is:");
 			console.log( this.element.val() )
-			emailAddress = this.element.val();
+			/*emailAddress = this.element.val();
 			
 			if (emailAddress){
 				$.getJSON( leadspendAPI + encodeURIComponent( emailAddress ) + "?timeout=" + timeout + "&callback=?", null
@@ -42,15 +42,8 @@
 	};
 
 	LeadSpendEmail.prototype.init = function () {
-		console.log( "THIS From LeadSpendEmail.prototype.init:" );
-		console.log( this );
-		console.log( "Testing reduncancy of $(this.element): ");
-		console.log( this.element );
-		console.log( $(this.elelment) );
 		var lsInstance = this;
-		return $(this.element).on( "focusout", function() {
-			console.log( "lsINSTANCE From LeadSpendEmail.prototype.init bind:" );
-			console.log( lsInstance ); } );
+		return $(this.element).on( "focusout", function() { lsInstance.jsonpValidateEmail() } );
 	};
 	
 	// A lightweight plugin wrapper around the constructor, 
