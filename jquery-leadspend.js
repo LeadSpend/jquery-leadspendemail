@@ -25,9 +25,7 @@
 			
 			if ( emailAddress ){
 				$.getJSON( this.options.leadspendApi + encodeURIComponent( emailAddress ) + "?timeout=" + this.options.timeout + "&callback=?", null )
-					.done( function( data, textStatus, jqXHR ) {
-						$.proxy(this._jsonpValidateEmailDone, this)
-					})
+					.done( $.proxy(this._jsonpValidateEmailDone, this) )
 					.fail(function( data ) {
 						console.log( "fail" );
 					});
@@ -35,7 +33,8 @@
 		};
 		
 		// Function to be called on completion of jsonp email validation call
-		this._jsonpValidateEmailDone = function(){
+		this._jsonpValidateEmailDone = function( data, textStatus, jqXHR ){
+			console.log( "_jsonpValidateEmailDone called" );
 			console.log( data );			// json response
 			console.log( emailAddress );  // email address from jsonpValidateEmail function
 			console.log( lsInstance.element );	// instance of LeadSpendEmail object from jsonpValidateEmail function
