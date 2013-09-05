@@ -18,6 +18,7 @@
 		this._defaults = defaults;
         this._name = pluginName;
         
+		// Actual jsonp call to the LeadSpend API
 		this._jsonpValidateEmail = function( emailAddress ) {
 			console.log( "_jsonpValidateEmail called" );
 			var lsInstance = this; //define this as lsInstance to faciliate access within callback context
@@ -35,6 +36,17 @@
 			}
 		};
 		
+		// Function to be called on completion of jsonp email validation call
+		this._jsonpValidateEmailDone = function(){
+			
+		};
+		
+		// Function to be called on fail of jsonp email validation call
+		this._jsonpValidateEmailFail = function(){
+			
+		};
+		
+		// 
 		this.validateEmailInput = function(){
 			console.log( "validateEmailInput called" );
 			// CHECK FOR EXISTING .leadSpendEmail-result field with #EMAIL_FIELD_ID-RESULT ID
