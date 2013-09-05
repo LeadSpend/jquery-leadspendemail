@@ -22,8 +22,8 @@
 			console.log( "THIS From LeadSpendEmail.jsonpValidateEmail call:" );
 			console.log( this );
 			console.log("jsonpValidateEmail called.  Email address val is:");
-			console.log( this.element.val() )
-			/*emailAddress = this.element.val();
+			console.log( $(this.element).val() )
+			emailAddress = $(this.element).val();
 			
 			if (emailAddress){
 				$.getJSON( leadspendAPI + encodeURIComponent( emailAddress ) + "?timeout=" + timeout + "&callback=?", null
@@ -34,13 +34,14 @@
 				}).fail(function( data ) {
 					console.log("fail");
 				});
-			}*/
+			}
 		};
 
 		
         this.init();
 	};
 
+	// Code to be called on LSE init
 	LeadSpendEmail.prototype.init = function () {
 		var lsInstance = this;
 		return $(this.element).on( "focusout", function() { lsInstance.jsonpValidateEmail() } );
