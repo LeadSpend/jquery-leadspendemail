@@ -51,6 +51,10 @@
 		// Main email validation function.  Bound to focusout event of input.
 		this.validateEmailInput = function(){
 			console.log( "validateEmailInput called" );
+			
+			if ( !$( $( this.element ).attr( "id" ) + "-result") ){// TODO: extend to support elements without IDs --> need UUID or global counter?
+				$( this.element ).after( "<input class=\"leadSpendEmail-result\" id=\"" + $( this.element ).attr( "id" ) + "-result\">");
+			}
 			// CHECK FOR EXISTING .leadSpendEmail-result field with #EMAIL_FIELD_ID-RESULT ID
 			// if !exists:
 			// 		create it
