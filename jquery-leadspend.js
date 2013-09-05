@@ -30,7 +30,7 @@
 				).done( function(data, textStatus, jqXHR) {
 					console.log( data );
 					console.log( emailAddress );
-					console.log( this.element );
+					console.log( this );
 				}).fail(function( data ) {
 					console.log("fail");
 				});
@@ -59,3 +59,6 @@
     }
 }( jQuery, window, document ));
 
+$(document).ready(function(){
+	$(".LeadSpendEmail").LeadSpendEmail();
+});
