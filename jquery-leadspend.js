@@ -65,6 +65,7 @@
 				console.log(this.resultElement);
 			}
 			
+			// TODO: This is what you were working on last...
 			// elif val=pending
 			// 		check email address being validated
 			//		if same address
