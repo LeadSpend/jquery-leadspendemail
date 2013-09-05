@@ -18,26 +18,27 @@
 		this._defaults = defaults;
         this._name = pluginName;
         
-        this.init();
-	};
-	
-	LeadSpendEmail.jsonpValidateEmail = function() {
-		console.log( "THIS From LeadSpendEmail.jsonpValidateEmail call:" );
-		console.log( this );
-		/*console.log("jsonpValidateEmail called.  Email address val is:");
-		console.log( this.element.val() )
-		emailAddress = this.element.val();
+		this.jsonpValidateEmail = function() {
+			console.log( "THIS From LeadSpendEmail.jsonpValidateEmail call:" );
+			console.log( this );
+			/*console.log("jsonpValidateEmail called.  Email address val is:");
+			console.log( this.element.val() )
+			emailAddress = this.element.val();
+			
+			if (emailAddress){
+				$.getJSON( leadspendAPI + encodeURIComponent( emailAddress ) + "?timeout=" + timeout + "&callback=?", null
+				).done( function(data, textStatus, jqXHR) {
+					console.log( data );
+					console.log( emailAddress );
+					console.log( this.element );
+				}).fail(function( data ) {
+					console.log("fail");
+				});
+			}*/
+		};
+
 		
-		if (emailAddress){
-			$.getJSON( leadspendAPI + encodeURIComponent( emailAddress ) + "?timeout=" + timeout + "&callback=?", null
-			).done( function(data, textStatus, jqXHR) {
-				console.log( data );
-				console.log( emailAddress );
-				console.log( this.element );
-			}).fail(function( data ) {
-				console.log("fail");
-			});
-		}*/
+        this.init();
 	};
 
 	LeadSpendEmail.prototype.init = function () {
