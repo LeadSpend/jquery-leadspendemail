@@ -21,7 +21,6 @@
 		// Actual jsonp call to the LeadSpend API
 		this._jsonpValidateEmail = function( emailAddress ) {
 			console.log( "_jsonpValidateEmail called" );
-			var lsInstance = this; //define this as lsInstance to faciliate access within callback context
 			
 			if ( emailAddress ){
 				$.getJSON( this.options.leadspendApi + encodeURIComponent( emailAddress ) + "?timeout=" + this.options.timeout + "&callback=?", null )
@@ -33,11 +32,12 @@
 		};
 		
 		// Function to be called on completion of jsonp email validation call
+		// Must be called using $.proxy for proper context
 		this._jsonpValidateEmailDone = function( data, textStatus, jqXHR ){
 			console.log( "_jsonpValidateEmailDone called" );
 			console.log( data );			// json response
 			console.log( emailAddress );  // email address from jsonpValidateEmail function
-			console.log( lsInstance.element );	// instance of LeadSpendEmail object from jsonpValidateEmail function
+			console.log( this.element );	// instance of LeadSpendEmail object from jsonpValidateEmail function
 		};
 		
 		// Function to be called on fail of jsonp email validation call
