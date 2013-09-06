@@ -57,15 +57,44 @@
 			elementName = $( this.element ).attr( "name" );
 			console.log( "Element name = " + elementName );
 			
-			resultElementID = $( this.element ).attr( "id" ) + this.options.resultInputSuffix;
-			resultElementClass = "leadSpendEmail" + this.options.resultInputSuffix;
+			// append options.suffix to each attr that is set and create the hidden input for the result
+			
+			if ( elementID ) {
+				resultElementID = elementID + this.options.resultInputSuffix;
+			} else {
+				resultElementID = "";
+			}
+			
+						
+			if ( elementClass ) {
+				resultElementClass = elementClass + this.options.resultInputSuffix;
+			} else {
+				resultElementClass = "";
+			}
+			
+			if ( elementName ){
+				resultElementName = elementName + this.options.resultInputSuffix;
+			} else {
+				resultElementName = "";
+			}
+			
+			resultElementHtml = "<input class=\"" 	+ resultElementClass +
+									   "\" id=\"" 	+ resultElementID +
+									   "\" name=\"" + resultElementname + "\">";
+			
+			// Testing select pre insert.  Does it maintain reference?						   
+			this.resultElement = $(resultElementHTML);
+			$( this.element ).after( this.resultElement );
+			console.log( "Finished creating resultElement " );
+			console.log( this.element );
+			console.log( this.resultElement );
 			
 			// Create the hidden result input to store validity result
-			$( this.element ).after( "<input class=\"" + resultElementClass + "\" id=\"" + resultElementID + "\">");
-			
+			//$( this.element ).after( resultElementHtml );
+			//
 			// Store a reference to the hidden result imput
-			this.resultElement = $( "#" + resultElementID );
-			console.log(this.resultElement);
+			//this.resultElement = $( "#" + resultElementID );  // TODO: test whether $(this.resultElement) is necessary, or if I can just do this.resultElement
+			//console.log(this.resultElement);
 		}
 		
 		// Set state of email input to pending
