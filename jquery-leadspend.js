@@ -84,9 +84,13 @@
 			console.log( "validateEmailInput called" );
 			
 			emailAddress = $( this.element ).val();
-			// TODO: Perform most basic possible validation --> check for @
-			
-			if ( emailAddress ){
+			// TODO: Talk to Andrew about whether we want to do any validation in here.
+			// Email address must contain an '@' and a '.' and the '@' must come before the '.'
+			// Conveniently, this also checks for a blank email address
+			if ( emailAddress.indexOf("@") != -1 && 
+				 emailAddress.indexOf(".") != -1 && 
+				 emailAddress.indexOf("@") < emailAddress.indexOf(".") ){
+				
 				// Check for hidden result element.  Create if necessary. 
 				if ( $( "#" + $( this.element ).attr( "id" ) + "-result").length == 0 ){	// TODO: extend to support elements without IDs --> need UUID or global counter?
 					resultElementID = $( this.element ).attr( "id" ) + this.options.resultInputSuffix;
@@ -99,11 +103,6 @@
 					this.resultElement = $( "#" + resultElementID );
 					console.log(this.resultElement);
 				}
-				
-				// TODO: Do I need to test if the validity is pending here?
-				//if ( this._isResultPending() ){
-				//	
-				//}
 				
 				// Now test the pending address.  As long as it is different from the currently pending address, continue.
 				if ( emailAddress != this._getResultAddress() ){
