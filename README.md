@@ -13,9 +13,9 @@ Zero-Configuration Usage
 Accessing the result
 --------------------
 The email validation result will be stored in a hidden input as part of your form.  This input will have the following attributes:
-* Name: "{name of your email input}-result"
-* ID: "{id of your email input}-result" if set, or "" if ID was not set
-* Class: "leadSpendEmail-result"
+* name = "{name of your email input}-result"
+* id = "{id of your email input}-result" (or "" if ID was not set on your form)
+* class = "leadSpendEmail-result"
 
 Result Codes and What They Mean
 --------------------
