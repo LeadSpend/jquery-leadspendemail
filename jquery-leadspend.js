@@ -25,7 +25,7 @@
 			console.log( "_jsonpValidateEmail called" );
 			
 			this._setResultPending();
-			this._setPendingAddress( emailAddress );
+			this._setResultAddress( emailAddress );
 			
 			// Call the LS Email Validation API
 			$.getJSON( this.options.leadspendApi + encodeURIComponent( emailAddress ) + "?timeout=" + this.options.timeout + "&callback=?", null )
@@ -40,7 +40,7 @@
 			console.log( data );			// json response
 			console.log( emailAddress );  	// email address from jsonpValidateEmail function
 			
-			this._setPendingAddress( "" );	// erase currently pending address
+			this._setResultPending( false );
 			$(this.resultElement).val( data.result );
 		};
 		
@@ -48,32 +48,34 @@
 		// (to be called using $.proxy for proper context)
 		this._jsonpValidateEmailFail = function(){
 			console.log( "_jsonpValidateEmailFail called :(" );
-			this._setPendingAddress( "" );	// erase currently pending address
+			this._setResultPending( false );
 		};
 		
 		// Set state of email input to pending
-		this._setResultPending = function(){
-			$(this.resultElement).val( "pending" );
+		this._setResultPending = function( resultPending ){
+			if ( resultPending ){
+				this.resultPending = true;
+				$( this.resultElement ).val( "pending" );
+			} else{
+				this.resultPending = false;
+			}
+			
 		};
 		
 		// Returns true if jsonp response has not been returned and false otherwise
 		// TODO: Should I make this public?
 		this._isResultPending = function(){
-			if ( $(this.resultElement).val() ==  "pending" ){
-				return true;
-			} else {
-				return false;
-			}
+			return this.resultPending;
 		};
 		
 		// TODO: Also store pending address in the DOM as an HTML5 data attr
-		this._setPendingAddress = function( emailAddress ){
-			this.pendingAddress = emailAddress;
+		this._setResultAddress = function( emailAddress ){
+			this.resultAddress = emailAddress;
 		};
 		
-		this._getPendingAddress = function(){
-			console.log("Current pending address is: " + this.pendingAddress );
-			return this.pendingAddress;
+		this._getResultAddress = function(){
+			console.log("Current pending address is: " + this.resultAddress );
+			return this.resultAddress;
 		};
 		
 		
@@ -104,7 +106,7 @@
 				//}
 				
 				// Now test the pending address.  As long as it is different from the currently pending address, continue.
-				if ( emailAddress != this._getPendingAddress() ){
+				if ( emailAddress != this._getResultAddress() ){
 					this._jsonpValidateEmail( emailAddress );
 				}
 			}
