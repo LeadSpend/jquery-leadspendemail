@@ -5,12 +5,13 @@ as soon as they are typed in, and is designed to work well with your current sit
 
 Zero-Configuration Usage
 ====================
+This plugin was designed to work right out of the box with zero-configuration.  All you need to do is:
 * Import jquery
 * Import jquery-leadspendemailvalidation
 * Add the class "leadSpendEmail" to the email input on your form
 * The LeadSpend result will appear in a hidden input on your form
 
-Accessing the result
+Accessing the Result
 --------------------
 The email validation result will be stored in a hidden input as part of your form.  This input will have the following attributes:
 * name = "{name of your email input}-result"
