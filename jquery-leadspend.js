@@ -72,7 +72,7 @@
 		};
 		
 		this._getPendingAddress = function(){
-			console.log("Current pending address is: " + pendingAddress );
+			console.log("Current pending address is: " + this.pendingAddress );
 			return this.pendingAddress;
 		};
 		
