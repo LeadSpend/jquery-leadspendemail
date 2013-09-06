@@ -41,7 +41,7 @@ $(function(){
 <table>
 <tbody>
 <tr><th>Name</th><th>Description</th><th>Value</th></tr>
-<tr><td>timeout</td><td>The timeout, in seconds.</td><td>Integer (truncated to the range [3, 15]).</td></tr>
+<tr><td>timeout</td><td>The timeout, in seconds.</td><td>Integer in the range [3, 15].</td></tr>
 <tr><td>resultInputSuffix</td><td>The suffix to append to the hidden result input.</td><td>A string.</td></tr>
 <tr><td>debug</td><td>Enables console logging of events/data.</td><td>A boolean.</td></tr>
 </tbody>
