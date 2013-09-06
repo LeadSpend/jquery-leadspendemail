@@ -83,7 +83,7 @@
 									   "\" name=\"" + resultElementName + "\">";
 			
 			// Testing select pre insert.  Does it maintain reference?						   
-			this.resultElement = $(resultElementHTML);
+			this.resultElement = $(resultElementHtml );
 			$( this.element ).after( this.resultElement );
 			console.log( "Finished creating resultElement " );
 			console.log( this.element );
