@@ -8,4 +8,5 @@ Basic Usage
 * Import jQuery
 * Import jquery-leadspendemailvalidation
 * Add the class "leadSpendEmail" to the email input on your form
-* The LeadSpend result will appear 
+* The LeadSpend result will appear in a hidden input on your form
+
