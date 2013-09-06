@@ -6,7 +6,7 @@
 
 ;(function( $, window, document, undefined ){
 	// Initialize defaults
-	var pluginName = 'LeadSpendEmail',
+	var pluginName = 'leadSpendEmail',
 	defaults = {
 		leadspendApi: "https://secondary.api.leadspend.com/v2/validity/",
 		timeout: 5,
@@ -154,5 +154,5 @@
 
 // Validate all leadSpendEmail fields by default
 $( document ).ready( function(){
-	$( ".leadSpendEmail" ).LeadSpendEmail();
+	$( ".leadSpendEmail" ).leadSpendEmail();
 } );
