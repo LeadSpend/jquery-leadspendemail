@@ -8,7 +8,7 @@
 	// Initialize defaults
 	var pluginName = 'LeadSpendEmail',
 	defaults = {
-		leadspendApi: "https://primary.api.leadspend.com/v2/validity/",
+		leadspendApi: "https://secondary.api.leadspend.com/v2/validity/",
 		timeout: 5,
 		resultInputSuffix: "-result"
 	};
