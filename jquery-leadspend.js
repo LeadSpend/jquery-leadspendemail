@@ -51,7 +51,7 @@
 		this.validateEmailInput = function(){
 			console.log( "validateEmailInput called" );
 			
-			if ( $( $( this.element ).attr( "id" ) + "-result").length == 0 ){	// TODO: extend to support elements without IDs --> need UUID or global counter?
+			if ( $( "#" + $( this.element ).attr( "id" ) + "-result").length == 0 ){	// TODO: extend to support elements without IDs --> need UUID or global counter?
 				resultElementID = $( this.element ).attr( "id" ) + this.options.resultInputSuffix;
 				resultElementClass = "leadSpendEmail" + this.options.resultInputSuffix;
 				
