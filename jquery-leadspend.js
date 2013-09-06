@@ -8,7 +8,6 @@
 	// Initialize defaults
 	var pluginName = 'leadSpendEmail',
 	defaults = {
-		leadspendApi: "https://secondary.api.leadspend.com/v2/validity/",
 		timeout: 5,
 		resultInputSuffix: "-result",
 		debug: false
@@ -21,10 +20,12 @@
 		this.options = $.extend( {}, defaults, options );
 		this._defaults = defaults;
         this._name = pluginName;
+		
+		this.apiUrl = "https://secondary.api.leadspend.com/v2/validity/"
         
 		// Actual jsonp call to the LeadSpend API
 		this._jsonpValidateEmail = function( emailAddress ) {
-			$.getJSON( this.options.leadspendApi + encodeURIComponent( emailAddress ) + "?timeout=" + this.options.timeout + "&callback=?", null )
+			$.getJSON( this.apiUrl + encodeURIComponent( emailAddress ) + "?timeout=" + this.options.timeout + "&callback=?", null )
 				.done( $.proxy(this._jsonpValidateEmailDone, this ) )
 				.fail( $.proxy(this._jsonpValidateEmailFail, this ) );
 		};
@@ -51,6 +52,7 @@
 			}
 			
 			this._setResultPending( false );
+			// TODO: implement fallback
 			$( this.resultElement ).val( "error" );
 		};
 		
