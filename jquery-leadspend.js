@@ -50,14 +50,15 @@
 		
 		this._createResultElement = function(){
 			//$( "#" + $( this.element ).attr( "id" ) + "-result").length == 0 ){	// TODO: extend to support elements without IDs --> need UUID or global counter?
+			console.log( "_createResultElement called" );
 			
 			// get element ID, NAME, and CLASS
-			
-			
-			
-			
-			
-			
+			elementID = $( this.element ).attr( "id" );
+			console.log( "Element ID = " + elementID );
+			elementClass = $( this.element ).attr( "name" );
+			console.log( "Element ID = " + elementID );
+			elementName = $( this.element ).attr( "class" );
+			console.log( "Element ID = " + elementID );
 			
 			resultElementID = $( this.element ).attr( "id" ) + this.options.resultInputSuffix;
 			resultElementClass = "leadSpendEmail" + this.options.resultInputSuffix;
