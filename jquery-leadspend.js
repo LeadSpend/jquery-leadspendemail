@@ -16,16 +16,13 @@
 	// Constructor
 	function LeadSpendEmail( element, options){
 		this.element = element;
+		this.resultElement = null;
 		this.options = $.extend( {}, defaults, options );
 		this._defaults = defaults;
         this._name = pluginName;
         
 		// Actual jsonp call to the LeadSpend API
 		this._jsonpValidateEmail = function( emailAddress ) {
-			this._setResultPending( true );
-			this._setResultAddress( emailAddress );
-			
-			// Call the LS Email Validation API
 			$.getJSON( this.options.leadspendApi + encodeURIComponent( emailAddress ) + "?timeout=" + this.options.timeout + "&callback=?", null )
 				.done( $.proxy(this._jsonpValidateEmailDone, this ) )
 				.fail( $.proxy(this._jsonpValidateEmailFail, this ) );
@@ -112,6 +109,8 @@
 				
 				// Now test the pending address.  As long as it is different from the currently pending address, continue.
 				if ( emailAddress != this._getResultAddress() ){
+					this._setResultPending( true );
+					this._setResultAddress( emailAddress );
 					this._jsonpValidateEmail( emailAddress );
 				}
 			}
