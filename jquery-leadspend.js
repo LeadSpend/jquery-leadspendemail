@@ -89,7 +89,7 @@
 			// Conveniently, this also checks for a blank email address
 			if ( emailAddress.indexOf("@") != -1 && 
 				 emailAddress.indexOf(".") != -1 && 
-				 emailAddress.indexOf("@") < emailAddress.indexOf(".") ){
+				 emailAddress.indexOf("@") < emailAddress.lastIndexOf(".") ){
 				
 				// Check for hidden result element.  Create if necessary. 
 				if ( $( "#" + $( this.element ).attr( "id" ) + "-result").length == 0 ){	// TODO: extend to support elements without IDs --> need UUID or global counter?
