@@ -24,7 +24,7 @@
 		this._jsonpValidateEmail = function( emailAddress ) {
 			console.log( "_jsonpValidateEmail called" );
 			
-			this._setResultPending();
+			this._setResultPending( true );
 			this._setResultAddress( emailAddress );
 			
 			// Call the LS Email Validation API
