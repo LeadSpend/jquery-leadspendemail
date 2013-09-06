@@ -103,7 +103,7 @@
 				 emailAddress.indexOf("@") < emailAddress.lastIndexOf(".") ){
 				
 				// Check for hidden result element.  Create if necessary. 
-				if ( !isset( this.resultElement ) ){
+				if ( !this.resultElement ){
 					this._createResultElement();
 				}
 				
