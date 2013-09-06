@@ -24,8 +24,8 @@
 		this._jsonpValidateEmail = function( emailAddress ) {
 			console.log( "_jsonpValidateEmail called" );
 			
-			// TODO: Set resultElement field to "pending"
-			$(this.resultElement).val( "pending" );
+			this._setResultPending();
+			this._setPendingAddress( emailAddress );
 			
 			// Call the LS Email Validation API
 			$.getJSON( this.options.leadspendApi + encodeURIComponent( emailAddress ) + "?timeout=" + this.options.timeout + "&callback=?", null )
@@ -39,8 +39,8 @@
 			console.log( "_jsonpValidateEmailDone called" );
 			console.log( data );			// json response
 			console.log( emailAddress );  	// email address from jsonpValidateEmail function
-			console.log( this.element );	// instance of LeadSpendEmail object from jsonpValidateEmail function
-			// TODO: This is what you were working on last...
+			
+			this._setPendingAddress( "" );	// erase currently pending address
 			$(this.resultElement).val( data.result );
 		};
 		
@@ -48,39 +48,65 @@
 		// (to be called using $.proxy for proper context)
 		this._jsonpValidateEmailFail = function(){
 			console.log( "_jsonpValidateEmailFail called :(" );
+			this._setPendingAddress( "" );	// erase currently pending address
 		};
+		
+		// Set state of email input to pending
+		this._setResultPending = function(){
+			$(this.resultElement).val( "pending" );
+		};
+		
+		// Returns true if jsonp response has not been returned and false otherwise
+		// TODO: Should I make this public?
+		this._isResultPending = function(){
+			if ( $(this.resultElement).val() ==  "pending" ){
+				return true;
+			} else {
+				return false;
+			}
+		};
+		
+		// TODO: Also store pending address in the DOM as an HTML5 data attr
+		this._setPendingAddress = function( emailAddress ){
+			this.pendingAddress = emailAddress;
+		};
+		
+		this._getPendingAddress = function(){
+			console.log("Current pending address is: " + pendingAddress );
+			return this.pendingAddress;
+		};
+		
 		
 		// Main email validation function.  Bound to focusout event of input.
 		this.validateEmailInput = function(){
 			console.log( "validateEmailInput called" );
 			
-			if ( $( "#" + $( this.element ).attr( "id" ) + "-result").length == 0 ){	// TODO: extend to support elements without IDs --> need UUID or global counter?
-				resultElementID = $( this.element ).attr( "id" ) + this.options.resultInputSuffix;
-				resultElementClass = "leadSpendEmail" + this.options.resultInputSuffix;
-				
-				// Create the hidden result input to store validity result
-				$( this.element ).after( "<input class=\"" + resultElementClass + "\" id=\"" + resultElementID + "\">");
-				
-				// Store a reference to the hidden result imput
-				this.resultElement = $( "#" + resultElementID );
-				console.log(this.resultElement);
-			}
-			
-			// elif val=pending
-			//else if ( this.resultElement.val() == "pending" ) {
-			//	
-			//}
-
-			// 		check email address being validated
-			//		if same address
-			//			return
-			//		else
-			//			continue
-			
 			emailAddress = $( this.element ).val();
 			// TODO: Perform most basic possible validation --> check for @
-			if (emailAddress){
-				this._jsonpValidateEmail( emailAddress );
+			
+			if ( emailAddress ){
+				// Check for hidden result element.  Create if necessary. 
+				if ( $( "#" + $( this.element ).attr( "id" ) + "-result").length == 0 ){	// TODO: extend to support elements without IDs --> need UUID or global counter?
+					resultElementID = $( this.element ).attr( "id" ) + this.options.resultInputSuffix;
+					resultElementClass = "leadSpendEmail" + this.options.resultInputSuffix;
+					
+					// Create the hidden result input to store validity result
+					$( this.element ).after( "<input class=\"" + resultElementClass + "\" id=\"" + resultElementID + "\">");
+					
+					// Store a reference to the hidden result imput
+					this.resultElement = $( "#" + resultElementID );
+					console.log(this.resultElement);
+				}
+				
+				// TODO: Do I need to test if the validity is pending here?
+				//if ( this._isResultPending() ){
+				//	
+				//}
+				
+				// Now test the pending address.  As long as it is different from the currently pending address, continue.
+				if ( emailAddress != this._getPendingAddress() ){
+					this._jsonpValidateEmail( emailAddress );
+				}
 			}
 		};
 		
