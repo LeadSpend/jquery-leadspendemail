@@ -40,9 +40,13 @@
 		
 		// Called on fail of jsonp email validation call
 		// (to be called using $.proxy for proper context)
-		this._jsonpValidateEmailFail = function(){
-			console.log( "_jsonpValidateEmailFail called :(" );
+		this._jsonpValidateEmailFail = function( jqXHR, textStatus, errorThrown ){
+			console.log( "LeadSpend API Call Failed.  Logging jqXHR, textStatus, and errorThrown:");
+			console.log( jqXHR );
+			console.log( textStatus );
+			console.log( errorThrown );
 			this._setResultPending( false );
+			$( this.resultElement ).val( "error" );
 		};
 		
 		this._createResultElement = function(){
@@ -85,16 +89,6 @@
 			// Testing select pre insert.  Does it maintain reference?						   
 			this.resultElement = $(resultElementHtml );
 			$( this.element ).after( this.resultElement );
-			console.log( "Finished creating resultElement " );
-			console.log( this.element );
-			console.log( this.resultElement );
-			
-			// Create the hidden result input to store validity result
-			//$( this.element ).after( resultElementHtml );
-			//
-			// Store a reference to the hidden result imput
-			//this.resultElement = $( "#" + resultElementID );  // TODO: test whether $(this.resultElement) is necessary, or if I can just do this.resultElement
-			//console.log(this.resultElement);
 		}
 		
 		// Set state of email input to pending
