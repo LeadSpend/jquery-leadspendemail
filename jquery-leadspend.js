@@ -37,6 +37,8 @@
 			console.log( data );			// json response
 			console.log( emailAddress );  	// email address from jsonpValidateEmail function
 			console.log( this.element );	// instance of LeadSpendEmail object from jsonpValidateEmail function
+			
+			$(this.resultElement).val( data.result );
 		};
 		
 		// Called on fail of jsonp email validation call
@@ -79,7 +81,6 @@
 				this._jsonpValidateEmail( emailAddress );
 			}
 		};
-
 		
         this.init();
 	};
