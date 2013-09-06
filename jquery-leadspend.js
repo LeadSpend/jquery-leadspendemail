@@ -80,7 +80,7 @@
 			
 			resultElementHtml = "<input class=\"" 	+ resultElementClass +
 									   "\" id=\"" 	+ resultElementID +
-									   "\" name=\"" + resultElementname + "\">";
+									   "\" name=\"" + resultElementName + "\">";
 			
 			// Testing select pre insert.  Does it maintain reference?						   
 			this.resultElement = $(resultElementHTML);
