@@ -24,14 +24,10 @@
 		this._jsonpValidateEmail = function( emailAddress ) {
 			console.log( "_jsonpValidateEmail called" );
 			
-			// TODO: Perform most basic possible validation --> check for @
-			
 			// Call the LS Email Validation API
-			if ( emailAddress ){
-				$.getJSON( this.options.leadspendApi + encodeURIComponent( emailAddress ) + "?timeout=" + this.options.timeout + "&callback=?", null )
-					.done( $.proxy(this._jsonpValidateEmailDone, this ) )
-					.fail( $.proxy(this._jsonpValidateEmailFail, this ) );
-			}
+			$.getJSON( this.options.leadspendApi + encodeURIComponent( emailAddress ) + "?timeout=" + this.options.timeout + "&callback=?", null )
+				.done( $.proxy(this._jsonpValidateEmailDone, this ) )
+				.fail( $.proxy(this._jsonpValidateEmailFail, this ) );
 		};
 		
 		// Called on completion of jsonp email validation call
@@ -67,6 +63,10 @@
 			
 			// TODO: This is what you were working on last...
 			// elif val=pending
+			//else if ( this.resultElement.val() == "pending" ) {
+			//	
+			//}
+
 			// 		check email address being validated
 			//		if same address
 			//			return
@@ -74,7 +74,10 @@
 			//			continue
 			
 			emailAddress = $( this.element ).val();
-			this._jsonpValidateEmail( emailAddress );
+			// TODO: Perform most basic possible validation --> check for @
+			if (emailAddress){
+				this._jsonpValidateEmail( emailAddress );
+			}
 		};
 
 		
