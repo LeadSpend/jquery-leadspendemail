@@ -33,8 +33,6 @@
 		// Called on completion of jsonp email validation call
 		// (to be called using $.proxy for proper context)
 		this._jsonpValidateEmailDone = function( data, textStatus, jqXHR ){
-			console.log("Debug is ");
-			console.log(this.options.debug);
 			if ( this.options.debug ){
 				console.log( data );			// json response
 			}
@@ -142,7 +140,7 @@
 
 	// Code to be called on plugin init
 	LeadSpendEmail.prototype.init = function () {
-		return $( this.element ).on( "focusout", $.proxy( this.validateEmailInput, this ) ); // Use jQuery.proxy to enforce proper context within callback
+		return $( this.element ).on( "focusout", $.proxy( this.validateEmailInput, this ) );
 	};
 	
 	// Constructor wrapper, preventing against multiple instantiations
@@ -161,6 +159,6 @@
 }( jQuery, window, document ));
 
 // Validate all leadSpendEmail fields by default
-//$( document ).ready( function(){
-//	$( ".leadSpendEmail" ).leadSpendEmail();
-//} );
+$( document ).ready( function(){
+	$( ".leadSpendEmail" ).leadSpendEmail();
+} );
