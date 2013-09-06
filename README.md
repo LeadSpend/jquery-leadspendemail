@@ -5,8 +5,13 @@ as soon as they are typed in, and is designed to work well with your current sit
 
 Basic Usage
 --------------------
-* Import jQuery
+* Import jquery
 * Import jquery-leadspendemailvalidation
 * Add the class "leadSpendEmail" to the email input on your form
 * The LeadSpend result will appear in a hidden input on your form
 
+
+
+Demo Form
+--------------------
+See the demo folder for an example of the plugin.
