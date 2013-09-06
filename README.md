@@ -3,6 +3,9 @@ LeadSpend Email Validation jQuery Plugin
 Validate your email addresses without writing a single line of code!  The LeadSpend Email Validation jQuery Plugin automatically validates email addresses
 as soon as they are typed in, and is designed to work well with your current site no matter how you're validating the form.
 
+
+
+
 Zero-Configuration Usage
 ===================
 This plugin was designed to work right out of the box with zero-configuration.  All you need to do is:
@@ -18,15 +21,36 @@ The email validation result will be stored in a hidden input as part of your for
 * id = "{id of your email input}-result" (or "" if ID was not set on your form)
 * class = "leadSpendEmail-result"
 
+
+
+
+
 Custom Usage and Options
 ====================
-LeadSpend Email Validation is designed to be a fully featured jQuery plugin.  This means
+LeadSpend Email Validation is designed to be a fully featured jQuery plugin.  This means that it is called using a jQuery selector, and can be
+passed an map of options, or [http://api.jquery.com/Types/#PlainObject](PlainObject).
 
 ```javascript
 $(function(){
-  $('#EMAIL_FIELD_ID').leadSpendValidate();
+  $('#EMAIL_FIELD_ID').leadSpendValidate( options );
 });
 ```
+
+### Options ###
+
+<table>
+<tbody>
+<tr><th>Name</th><th>Description</th><th>Value</th></tr>
+<tr><td>timeout</td><td>The timeout, in seconds.</td><td>Integer (truncated to the range [3, 15]).</td></tr>
+<tr><td>resultInputSuffix</td><td>The suffix to append to the hidden result input.</td><td>A string.</td></tr>
+<tr><td>debug</td><td>Enables console logging of events/data.</td><td>A boolean.</td></tr>
+</tbody>
+</table>
+
+
+
+
+
 
 Result Codes and What They Mean
 ====================
@@ -55,6 +79,9 @@ In addition to these result codes, this plugin defines two status codes as follo
 <tr><td>error</td><td>There was an error while making the API call to the LeadSpend servers.</td></tr>
 </tbody>
 </table>
+
+
+
 
 Demo Form
 ====================
