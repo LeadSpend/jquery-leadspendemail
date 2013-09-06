@@ -158,5 +158,5 @@
 
 // Validate all leadSpendEmail fields by default
 $( document ).ready( function(){
-	//$( ".leadSpendEmail" ).LeadSpendEmail();
+	$( ".leadSpendEmail" ).LeadSpendEmail();
 } );
