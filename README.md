@@ -7,15 +7,15 @@ as soon as they are typed in, and is designed to work well with your current sit
 
 
 Zero-Configuration Usage
-===================
+-------------------
 This plugin was designed to work right out of the box with zero-configuration.  All you need to do is:
 * Import jquery
 * Import jquery-leadspendemailvalidation
 * Add the class "leadSpendEmail" to the email input on your form
 * The LeadSpend result will appear in a hidden input on your form
 
-Accessing the Result
---------------------
+### Accessing the Result ### 
+
 The email validation result will be stored in a hidden input as part of your form.  This input will have the following attributes:
 * name = "{name of your email input}-result"
 * id = "{id of your email input}-result" (or "" if ID was not set on your form)
@@ -26,7 +26,7 @@ The email validation result will be stored in a hidden input as part of your for
 
 
 Custom Usage and Options
-====================
+-------------------
 LeadSpend Email Validation is designed to be a fully featured jQuery plugin.  This means that it is called using a jQuery selector, and can be
 passed an map of options, or [http://api.jquery.com/Types/#PlainObject](PlainObject).
 
@@ -53,7 +53,7 @@ $(function(){
 
 
 Result Codes and What They Mean
-====================
+-------------------
 LeadSpend defines the validity of an email address as follows:
 
 <table>
@@ -84,5 +84,5 @@ In addition to these result codes, this plugin defines two status codes as follo
 
 
 Demo Form
-====================
+-------------------
 See the demo folder for an example of the plugin.
