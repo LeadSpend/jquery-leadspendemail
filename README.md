@@ -14,7 +14,7 @@ This plugin was designed to work right out of the box with zero-configuration.  
 * Add the class "leadSpendEmail" to the email input on your form
 * The LeadSpend result will appear in a hidden input on your form
 
-### Accessing the Result ### 
+### Accessing the Result
 
 The email validation result will be stored in a hidden input as part of your form.  This input will have the following attributes:
 * name = "{name of your email input}-result"
@@ -36,7 +36,7 @@ $(function(){
 });
 ```
 
-### Options ###
+### Options
 
 <table>
 <tbody>
