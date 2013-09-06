@@ -52,10 +52,10 @@
 			// get element ID, NAME, and CLASS
 			elementID = $( this.element ).attr( "id" );
 			console.log( "Element ID = " + elementID );
-			elementClass = $( this.element ).attr( "name" );
-			console.log( "Element ID = " + elementID );
-			elementName = $( this.element ).attr( "class" );
-			console.log( "Element ID = " + elementID );
+			elementClass = $( this.element ).attr( "class" );
+			console.log( "Element class = " + elementClass );
+			elementName = $( this.element ).attr( "name" );
+			console.log( "Element name = " + elementName );
 			
 			resultElementID = $( this.element ).attr( "id" ) + this.options.resultInputSuffix;
 			resultElementClass = "leadSpendEmail" + this.options.resultInputSuffix;
