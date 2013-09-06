@@ -22,8 +22,6 @@
         
 		// Actual jsonp call to the LeadSpend API
 		this._jsonpValidateEmail = function( emailAddress ) {
-			console.log( "_jsonpValidateEmail called" );
-			
 			this._setResultPending( true );
 			this._setResultAddress( emailAddress );
 			
@@ -36,7 +34,6 @@
 		// Called on completion of jsonp email validation call
 		// (to be called using $.proxy for proper context)
 		this._jsonpValidateEmailDone = function( data, textStatus, jqXHR ){
-			console.log( "_jsonpValidateEmailDone called" );
 			console.log( data );			// json response
 			console.log( emailAddress );  	// email address from jsonpValidateEmail function
 			
@@ -51,6 +48,28 @@
 			this._setResultPending( false );
 		};
 		
+		this._createResultElement = function(){
+			//$( "#" + $( this.element ).attr( "id" ) + "-result").length == 0 ){	// TODO: extend to support elements without IDs --> need UUID or global counter?
+			
+			// get element ID, NAME, and CLASS
+			
+			
+			
+			
+			
+			
+			
+			resultElementID = $( this.element ).attr( "id" ) + this.options.resultInputSuffix;
+			resultElementClass = "leadSpendEmail" + this.options.resultInputSuffix;
+			
+			// Create the hidden result input to store validity result
+			$( this.element ).after( "<input class=\"" + resultElementClass + "\" id=\"" + resultElementID + "\">");
+			
+			// Store a reference to the hidden result imput
+			this.resultElement = $( "#" + resultElementID );
+			console.log(this.resultElement);
+		}
+		
 		// Set state of email input to pending
 		this._setResultPending = function( resultPending ){
 			if ( resultPending ){
@@ -59,31 +78,25 @@
 			} else{
 				this.resultPending = false;
 			}
-			
 		};
 		
 		// Returns true if jsonp response has not been returned and false otherwise
-		// TODO: Should I make this public?
 		this._isResultPending = function(){
 			return this.resultPending;
 		};
 		
-		// TODO: Also store pending address in the DOM as an HTML5 data attr
 		this._setResultAddress = function( emailAddress ){
 			this.resultAddress = emailAddress;
 		};
 		
 		this._getResultAddress = function(){
-			console.log("Current pending address is: " + this.resultAddress );
 			return this.resultAddress;
 		};
 		
-		
 		// Main email validation function.  Bound to focusout event of input.
 		this.validateEmailInput = function(){
-			console.log( "validateEmailInput called" );
-			
 			emailAddress = $( this.element ).val();
+			
 			// TODO: Talk to Andrew about whether we want to do any validation in here.
 			// Email address must contain an '@' and a '.' and the '@' must come before the '.'
 			// Conveniently, this also checks for a blank email address
@@ -92,16 +105,8 @@
 				 emailAddress.indexOf("@") < emailAddress.lastIndexOf(".") ){
 				
 				// Check for hidden result element.  Create if necessary. 
-				if ( $( "#" + $( this.element ).attr( "id" ) + "-result").length == 0 ){	// TODO: extend to support elements without IDs --> need UUID or global counter?
-					resultElementID = $( this.element ).attr( "id" ) + this.options.resultInputSuffix;
-					resultElementClass = "leadSpendEmail" + this.options.resultInputSuffix;
-					
-					// Create the hidden result input to store validity result
-					$( this.element ).after( "<input class=\"" + resultElementClass + "\" id=\"" + resultElementID + "\">");
-					
-					// Store a reference to the hidden result imput
-					this.resultElement = $( "#" + resultElementID );
-					console.log(this.resultElement);
+				if ( !isset( this.resultElement ) ){
+					this._createResultElement();
 				}
 				
 				// Now test the pending address.  As long as it is different from the currently pending address, continue.
@@ -114,16 +119,16 @@
         this.init();
 	};
 
-	// Code to be called on LSE init
+	// Code to be called on plugin init
 	LeadSpendEmail.prototype.init = function () {
-		return $(this.element).on( "focusout", $.proxy(this.validateEmailInput, this) ); // use jQuery.proxy to enforce proper context within callback
+		return $( this.element ).on( "focusout", $.proxy( this.validateEmailInput, this ) ); // Use jQuery.proxy to enforce proper context within callback
 	};
 	
 	// Constructor wrapper, preventing against multiple instantiations
 	$.fn[pluginName] = function ( options ) {
         return this.each(function () {
-            if (!$.data(this, 'plugin_' + pluginName)) {
-                $.data(this, 'plugin_' + pluginName, 
+            if ( !$.data( this, 'plugin_' + pluginName ) ) {
+                $.data( this, 'plugin_' + pluginName, 
                 new LeadSpendEmail( this, options ));
             }
         });
@@ -131,6 +136,6 @@
 }( jQuery, window, document ));
 
 // Validate all leadSpendEmail fields by default
-$(document).ready(function(){
-	$(".leadSpendEmail").LeadSpendEmail();
-});
+$( document ).ready( function(){
+	$( ".leadSpendEmail" ).LeadSpendEmail();
+} );
