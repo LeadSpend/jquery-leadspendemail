@@ -10,7 +10,8 @@
 	defaults = {
 		leadspendApi: "https://secondary.api.leadspend.com/v2/validity/",
 		timeout: 5,
-		resultInputSuffix: "-result"
+		resultInputSuffix: "-result",
+		debug: false
 	};
 	
 	// Constructor
@@ -31,8 +32,9 @@
 		// Called on completion of jsonp email validation call
 		// (to be called using $.proxy for proper context)
 		this._jsonpValidateEmailDone = function( data, textStatus, jqXHR ){
-			console.log( data );			// json response
-			console.log( emailAddress );  	// email address from jsonpValidateEmail function
+			if ( this.options.debug ){
+				console.log( data );			// json response
+			}
 			
 			this._setResultPending( false );
 			$(this.resultElement).val( data.result );
@@ -41,10 +43,13 @@
 		// Called on fail of jsonp email validation call
 		// (to be called using $.proxy for proper context)
 		this._jsonpValidateEmailFail = function( jqXHR, textStatus, errorThrown ){
-			console.log( "LeadSpend API Call Failed.  Logging jqXHR, textStatus, and errorThrown:");
-			console.log( jqXHR );
-			console.log( textStatus );
-			console.log( errorThrown );
+			if ( this.options.debug ){
+				console.log( "LeadSpend API Call Failed.  Logging jqXHR, textStatus, and errorThrown:");
+				console.log( jqXHR );
+				console.log( textStatus );
+				console.log( errorThrown );
+			}
+			
 			this._setResultPending( false );
 			$( this.resultElement ).val( "error" );
 		};
@@ -153,5 +158,5 @@
 
 // Validate all leadSpendEmail fields by default
 $( document ).ready( function(){
-	$( ".leadSpendEmail" ).LeadSpendEmail();
+	//$( ".leadSpendEmail" ).LeadSpendEmail();
 } );
