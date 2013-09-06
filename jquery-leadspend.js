@@ -33,6 +33,8 @@
 		// Called on completion of jsonp email validation call
 		// (to be called using $.proxy for proper context)
 		this._jsonpValidateEmailDone = function( data, textStatus, jqXHR ){
+			console.log("Debug is ");
+			console.log(this.options.debug);
 			if ( this.options.debug ){
 				console.log( data );			// json response
 			}
