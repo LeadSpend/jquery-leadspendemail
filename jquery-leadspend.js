@@ -161,6 +161,6 @@
 }( jQuery, window, document ));
 
 // Validate all leadSpendEmail fields by default
-$( document ).ready( function(){
-	$( ".leadSpendEmail" ).leadSpendEmail();
-} );
+//$( document ).ready( function(){
+//	$( ".leadSpendEmail" ).leadSpendEmail();
+//} );
