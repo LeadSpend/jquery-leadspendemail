@@ -24,6 +24,9 @@
 		this._jsonpValidateEmail = function( emailAddress ) {
 			console.log( "_jsonpValidateEmail called" );
 			
+			// TODO: Set resultElement field to "pending"
+			$(this.resultElement).val( "pending" );
+			
 			// Call the LS Email Validation API
 			$.getJSON( this.options.leadspendApi + encodeURIComponent( emailAddress ) + "?timeout=" + this.options.timeout + "&callback=?", null )
 				.done( $.proxy(this._jsonpValidateEmailDone, this ) )
@@ -37,7 +40,7 @@
 			console.log( data );			// json response
 			console.log( emailAddress );  	// email address from jsonpValidateEmail function
 			console.log( this.element );	// instance of LeadSpendEmail object from jsonpValidateEmail function
-			
+			// TODO: This is what you were working on last...
 			$(this.resultElement).val( data.result );
 		};
 		
@@ -63,7 +66,6 @@
 				console.log(this.resultElement);
 			}
 			
-			// TODO: This is what you were working on last...
 			// elif val=pending
 			//else if ( this.resultElement.val() == "pending" ) {
 			//	
