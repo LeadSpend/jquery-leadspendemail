@@ -49,26 +49,19 @@
 			$( this.resultElement ).val( "error" );
 		};
 		
-		this._createResultElement = function(){
-			//$( "#" + $( this.element ).attr( "id" ) + "-result").length == 0 ){	// TODO: extend to support elements without IDs --> need UUID or global counter?
-			console.log( "_createResultElement called" );
-			
+		// Creates the resultElement, where the email result is stored and accessible for any validation front/back end
+		this._createResultElement = function(){			
 			// get element ID, NAME, and CLASS
 			elementID = $( this.element ).attr( "id" );
-			console.log( "Element ID = " + elementID );
 			elementClass = $( this.element ).attr( "class" );
-			console.log( "Element class = " + elementClass );
 			elementName = $( this.element ).attr( "name" );
-			console.log( "Element name = " + elementName );
 			
 			// append options.suffix to each attr that is set and create the hidden input for the result
-			
 			if ( elementID ) {
 				resultElementID = elementID + this.options.resultInputSuffix;
 			} else {
 				resultElementID = "";
 			}
-			
 						
 			if ( elementClass ) {
 				resultElementClass = elementClass + this.options.resultInputSuffix;
