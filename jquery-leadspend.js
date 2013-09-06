@@ -56,9 +56,8 @@
 		
 		// Creates the resultElement, where the email result is stored and accessible for any validation front/back end
 		this._createResultElement = function(){			
-			// get element ID, NAME, and CLASS
+			// get element ID, and NAME
 			elementID = $( this.element ).attr( "id" );
-			elementClass = $( this.element ).attr( "class" );
 			elementName = $( this.element ).attr( "name" );
 			
 			// append options.suffix to each attr that is set and create the hidden input for the result
@@ -67,18 +66,15 @@
 			} else {
 				resultElementID = "";
 			}
-						
-			if ( elementClass ) {
-				resultElementClass = elementClass + this.options.resultInputSuffix;
-			} else {
-				resultElementClass = "";
-			}
 			
 			if ( elementName ){
 				resultElementName = elementName + this.options.resultInputSuffix;
 			} else {
 				resultElementName = "";
 			}
+			
+			// Class attr will always be leadSpendEmail[+suffix]
+			resultElementClass = "leadSpendEmail" + this.options.suffix;
 			
 			resultElementHtml = "<input class=\"" 	+ resultElementClass +
 									   "\" id=\"" 	+ resultElementID +
