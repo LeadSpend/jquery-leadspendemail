@@ -19,7 +19,7 @@
 		this.resultElement = null;
 		this.options = $.extend( {}, defaults, options );
 		this._defaults = defaults;
-        this._name = pluginName;
+		this._name = pluginName;
 		
 		this.apiUrl = "https://secondary.api.leadspend.com/v2/validity/"
         
@@ -52,7 +52,6 @@
 			}
 			
 			this._setResultPending( false );
-			// TODO: implement fallback
 			$( this.resultElement ).val( "error" );
 		};
 		
@@ -81,8 +80,7 @@
 			resultElementHtml = "<input class=\"" 	+ resultElementClass +
 									   "\" id=\"" 	+ resultElementID +
 									   "\" name=\"" + resultElementName + "\">";
-			
-			// Testing select pre insert.  Does it maintain reference?						   
+								   
 			this.resultElement = $( resultElementHtml );
 			this.resultElement.hide();
 			$( this.element ).after( this.resultElement );
@@ -115,7 +113,6 @@
 		this.validateEmailInput = function(){
 			emailAddress = $( this.element ).val();
 			
-			// TODO: Talk to Andrew about whether we want to do any validation in here.
 			// Email address must contain an '@' and a '.' and the '@' must come before the '.'
 			// Conveniently, this also checks for a blank email address
 			if ( emailAddress.indexOf("@") != -1 && 
@@ -145,7 +142,6 @@
 	};
 	
 	// Constructor wrapper, preventing against multiple instantiations
-	// TODO: allow for overriding options
 	$.fn[pluginName] = function ( options ) {
         return this.each(function () {
             if ( !$.data( this, 'plugin_' + pluginName ) ) {
