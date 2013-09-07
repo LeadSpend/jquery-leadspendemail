@@ -20,7 +20,7 @@ passed an map of options, or [PlainObject](http://api.jquery.com/Types/#PlainObj
 
 ```javascript
 $(function(){
-  $('#EMAIL_FIELD_ID').leadSpendValidate( options );
+  $('{email-field-selector}').leadSpendValidate( options );
 });
 ```
 
