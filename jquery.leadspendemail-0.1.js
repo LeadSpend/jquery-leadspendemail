@@ -18,7 +18,7 @@
 	};
 	
 	// Constructor
-	function LeadSpendEmail( element, options){
+	function LeadSpendEmail( element, options ){
 		this.element = element;
 		this.resultElement = null;
 		this.options = $.extend( {}, defaults, options );
@@ -30,8 +30,8 @@
 		// Actual jsonp call to the LeadSpend API
 		this._jsonpValidateEmail = function( emailAddress ) {
 			$.getJSON( this.apiUrl + encodeURIComponent( emailAddress ) + "?timeout=" + this.options.timeout + "&callback=?", null )
-				.done( $.proxy(this._jsonpValidateEmailDone, this ) )
-				.fail( $.proxy(this._jsonpValidateEmailFail, this ) );
+				.done( $.proxy( this._jsonpValidateEmailDone, this ) )
+				.fail( $.proxy( this._jsonpValidateEmailFail, this ) );
 		};
 		
 		// Called on completion of jsonp email validation call
@@ -42,7 +42,7 @@
 			}
 			
 			this._setResultPending( false );
-			$(this.resultElement).val( data.result );
+			$( this.resultElement ).val( data.result );
 		};
 		
 		// Called on fail of jsonp email validation call
@@ -84,7 +84,6 @@
 			resultElementHtml = "<input class=\"" 	+ resultElementClass +
 									   "\" id=\"" 	+ resultElementID +
 									   "\" name=\"" + resultElementName + "\">";
-								   
 			this.resultElement = $( resultElementHtml );
 			this.resultElement.hide();
 			$( this.element ).after( this.resultElement );
@@ -118,7 +117,7 @@
 			emailAddress = $( this.element ).val();
 			
 			// Email address must contain an '@' and a '.' and the '@' must come before the '.'
-			// Conveniently, this also checks for a blank email address
+			// Conveniently also checks for a blank email address
 			if ( emailAddress.indexOf("@") != -1 && 
 				 emailAddress.indexOf(".") != -1 && 
 				 emailAddress.indexOf("@") < emailAddress.lastIndexOf(".") ){
