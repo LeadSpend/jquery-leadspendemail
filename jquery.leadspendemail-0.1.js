@@ -79,7 +79,7 @@
 			}
 			
 			// Class attr will always be leadSpendEmail[+suffix]
-			resultElementClass = "leadSpendEmail" + this.options.suffix;
+			resultElementClass = "leadSpendEmail" + this.options.resultInputSuffix;
 			
 			resultElementHtml = "<input class=\"" 	+ resultElementClass +
 									   "\" id=\"" 	+ resultElementID +
