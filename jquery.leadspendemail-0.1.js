@@ -1,7 +1,11 @@
 /*!
  * LeadSpend Email Validation jQuery Plugin
+ * jquery.leadspendemail-0.1.js
+ * 
  * Original author: @this-sam, @leadspend
  * Licensed under the MIT license
+ *
+ * Requires jQuery
  */
 
 ;(function( $, window, document, undefined ){
