@@ -44,6 +44,7 @@ The email validation result will be stored in a hidden input as part of your for
 * id = "{id of your email input}-result" (or "" if ID was not set on your form)
 * class = "leadSpendEmail-result"
 
+Note: If a custom resultInputSuffix is used, "-result" will be replaced by it.
 
 Result Codes and What They Mean
 -------------------
