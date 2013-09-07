@@ -15,8 +15,8 @@ This plugin was designed to work right out of the box with zero-configuration.  
 
 Custom Usage and Options
 -------------------
-LeadSpend Email Validation is designed to be a fully featured jQuery plugin.  This means that it is called using a jQuery selector, and can be
-passed an map of options, or [http://api.jquery.com/Types/#PlainObject](PlainObject).
+LeadSpend Email Validation is also a fully featured jQuery plugin.  This means that it is called using a jQuery selector, and can be
+passed an map of options, or [PlainObject](http://api.jquery.com/Types/#PlainObject) as follows:
 
 ```javascript
 $(function(){
@@ -25,7 +25,7 @@ $(function(){
 ```
 
 ### Options
-
+The following options can be passed to the plugin:
 <table>
 <tbody>
 <tr><th>Name</th><th>Description</th><th>Value</th></tr>
