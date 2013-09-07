@@ -143,16 +143,16 @@
 	
 	// Constructor wrapper, preventing against multiple instantiations
 	$.fn[pluginName] = function ( options ) {
-        return this.each(function () {
-            if ( !$.data( this, 'plugin_' + pluginName ) ) {
-                $.data( this, 'plugin_' + pluginName, 
-                new LeadSpendEmail( this, options ));
-            }
+		return this.each(function () {
+			if ( !$.data( this, 'plugin_' + pluginName ) ) {
+				$.data( this, 'plugin_' + pluginName, 
+				new LeadSpendEmail( this, options ));
+			}
 			else if ( options ){
 				$.data( this, 'plugin_' + pluginName ).options = $.extend( {}, $.data( this, 'plugin_' + pluginName ).options, options );
 			}
-        });
-    }
+		});
+	}
 }( jQuery, window, document ));
 
 // Validate all leadSpendEmail fields by default
