@@ -147,8 +147,7 @@
 			if ( !$.data( this, 'plugin_' + pluginName ) ) {
 				$.data( this, 'plugin_' + pluginName, 
 				new LeadSpendEmail( this, options ));
-			}
-			else if ( options ){
+			} else if ( options ){
 				$.data( this, 'plugin_' + pluginName ).options = $.extend( {}, $.data( this, 'plugin_' + pluginName ).options, options );
 			}
 		});
