@@ -25,7 +25,7 @@ $(function(){
 ```
 
 ### Options
-The following options can be passed to the plugin:
+The following options may be passed to the plugin:
 <table>
 <tbody>
 <tr><th>Name</th><th>Description</th><th>Value</th></tr>
