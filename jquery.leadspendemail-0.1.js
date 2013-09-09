@@ -110,12 +110,9 @@
 		
 		// sets the value in the resultElement.  Eventually, provide a flag which sets these results to actionable vs. more detailed
 		this._setResultValue = function( value ){
-			prevValue = $( this.resultElement ).val();
-
-			$( this.resultElement ).val( value );
-			
-			// Trigger the change event if the value has been updated
-			if ( prevValue != value ){
+			// Only update value and trigger the change event if new value is different
+			if ( $( this.resultElement ).val() != value ){
+				$( this.resultElement ).val( value );
 				$( this.resultElement ).trigger( "change" );
 			}
 		};
