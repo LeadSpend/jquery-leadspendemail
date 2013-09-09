@@ -42,7 +42,7 @@
 			}
 			
 			this._setResultPending( false );
-			$( this.resultElement ).val( data.result );
+			this._setResultValue( data.result );
 		};
 		
 		// Called on fail of jsonp email validation call
@@ -56,7 +56,7 @@
 			}
 			
 			this._setResultPending( false );
-			$( this.resultElement ).val( "error" );
+			this._setResultValue( "error" );
 		};
 		
 		// Creates the resultElement, where the email result is stored and accessible for any validation front/back end
@@ -93,7 +93,7 @@
 		this._setResultPending = function( resultPending ){
 			if ( resultPending ){
 				this.resultPending = true;
-				$( this.resultElement ).val( "pending" );
+				this._setResultValue( "pending" );
 			} else{
 				this.resultPending = false;
 			}
@@ -106,6 +106,10 @@
 		
 		this._setResultAddress = function( emailAddress ){
 			this.resultAddress = emailAddress;
+		};
+		
+		this._setResultValue = function( value ){
+			$( this.resultElement ).val( value );
 		};
 		
 		this._getResultAddress = function(){
@@ -133,6 +137,8 @@
 					this._setResultAddress( emailAddress );
 					this._jsonpValidateEmail( emailAddress );
 				}
+			} else {
+				this._setResultValue( "invalid" );
 			}
 		};
 		
