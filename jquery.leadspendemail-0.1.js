@@ -122,11 +122,6 @@
 		
 		// Main email validation function.  Bound to focusout event of input.
 		this.validateEmailInput = function(){
-			// Check for hidden result element.  Create if necessary. 
-			if ( !this.resultElement ){
-				this._createResultElement();
-			}
-			
 			emailAddress = $( this.element ).val();
 			
 			// Email address must contain an '@' and a '.' and the '@' must come before the '.'
@@ -151,7 +146,8 @@
 
 	// Code to be called on plugin init
 	LeadSpendEmail.prototype.init = function () {
-		return $( this.element ).on( "focusout", $.proxy( this.validateEmailInput, this ) );
+		this._createResultElement();  // create the hidden element where result codes will be stored
+		return $( this.element ).on( "focusout", $.proxy( this.validateEmailInput, this ) );	
 	};
 	
 	// Constructor wrapper, preventing against multiple instantiations
