@@ -114,6 +114,11 @@
 		
 		// Main email validation function.  Bound to focusout event of input.
 		this.validateEmailInput = function(){
+			// Check for hidden result element.  Create if necessary. 
+			if ( !this.resultElement ){
+				this._createResultElement();
+			}
+			
 			emailAddress = $( this.element ).val();
 			
 			// Email address must contain an '@' and a '.' and the '@' must come before the '.'
@@ -121,11 +126,6 @@
 			if ( emailAddress.indexOf("@") != -1 && 
 				 emailAddress.indexOf(".") != -1 && 
 				 emailAddress.indexOf("@") < emailAddress.lastIndexOf(".") ){
-				
-				// Check for hidden result element.  Create if necessary. 
-				if ( !this.resultElement ){
-					this._createResultElement();
-				}
 				
 				// Now test the pending address.  As long as it is different from the currently pending address, continue.
 				if ( emailAddress != this._getResultAddress() ){
