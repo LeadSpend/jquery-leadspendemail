@@ -131,9 +131,9 @@
 			
 			// Email address must contain an '@' and a '.' and the '@' must come before the '.'
 			// Conveniently also checks for a blank email address
-			if ( emailAddress.indexOf("@") != -1 && 
-				 emailAddress.indexOf(".") != -1 && 
-				 emailAddress.indexOf("@") < emailAddress.lastIndexOf(".") ){
+			if ( emailAddress.indexOf( "@" ) != -1 && 
+				 emailAddress.indexOf( "." ) != -1 && 
+				 emailAddress.indexOf( "@" ) < emailAddress.lastIndexOf( "." ) ){
 				
 				// Now test the pending address.  As long as it is different from the currently pending address, continue.
 				if ( emailAddress != this._getResultAddress() ){
@@ -160,8 +160,6 @@
 			if ( !$.data( this, 'plugin_' + pluginName ) ) {
 				$.data( this, 'plugin_' + pluginName, 
 				new LeadSpendEmail( this, options ));
-			} else if ( options ){
-				$.data( this, 'plugin_' + pluginName ).options = $.extend( {}, $.data( this, 'plugin_' + pluginName ).options, options );
 			}
 		});
 	}
