@@ -3,6 +3,7 @@
  * jquery.leadspendemail-0.1.js
  * 
  * Original author: @this-sam, @leadspend
+ * Kudos to: @jtnotat
  * Licensed under the MIT license
  *
  * Requires jQuery
