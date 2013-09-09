@@ -108,6 +108,7 @@
 			this.resultAddress = emailAddress;
 		};
 		
+		// sets the value in the resultElement.  Eventually, provide a flag which sets these results to actionable vs. more detailed
 		this._setResultValue = function( value ){
 			$( this.resultElement ).val( value );
 		};
@@ -138,7 +139,7 @@
 					this._jsonpValidateEmail( emailAddress );
 				}
 			} else {
-				this._setResultValue( "invalid" );
+				this._setResultValue( "undeliverable" );
 			}
 		};
 		
