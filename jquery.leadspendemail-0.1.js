@@ -111,6 +111,9 @@
 		// sets the value in the resultElement.  Eventually, provide a flag which sets these results to actionable vs. more detailed
 		this._setResultValue = function( value ){
 			$( this.resultElement ).val( value );
+			
+			// Trigger the change event when the value has been updated
+			$( this.resultElement ).trigger( "change" );
 		};
 		
 		this._getResultAddress = function(){
