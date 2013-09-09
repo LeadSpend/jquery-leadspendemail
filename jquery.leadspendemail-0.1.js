@@ -114,6 +114,7 @@
 			// Only update value and trigger the change event if new value is different
 			if ( $( this.resultElement ).val() != value ){
 				$( this.resultElement ).val( value );
+				if ( this.options.debug ) console.log( "Setting resultInput value to: " + value );
 				$( this.resultElement ).trigger( "change" );
 			}
 		};
