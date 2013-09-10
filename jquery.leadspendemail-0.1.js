@@ -65,7 +65,7 @@
 			elementID = $( this.element ).attr( "id" );
 			elementName = $( this.element ).attr( "name" );
 			
-			resultElementSuffix = "-result";
+			resultInputSuffix = "-result";
 			
 			// append options.suffix to each attr that is set and create the hidden input for the result
 			if ( elementID ) {
@@ -81,7 +81,7 @@
 			}
 			
 			// Class attr will always be leadSpendEmail[+suffix]
-			resultElementClass = "leadSpendEmail" + resultElementSuffix;
+			resultElementClass = "leadSpendEmail" + resultInputSuffix;
 			
 			resultElementHtml = "<input class=\"" 	+ resultElementClass +
 									   "\" id=\"" 	+ resultElementID +
