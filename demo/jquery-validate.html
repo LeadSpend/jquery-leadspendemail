@@ -18,11 +18,26 @@
 		<script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
 		<script type="text/javascript">
 			$( document ).ready( function(){
+				jQuery.validator.addMethod(
+					"leadSpendEmail",
+					function( emailValue, element, parameters ) {	// actual validation function.  Return true if valid.
+						console.log( emailValue );
+						console.log( element );
+						console.log( parameters );
+						return false; 	// validity of address
+					},
+					function(value, field){				// function to determine result message
+						// get 
+						return "testing";
+					}
+				);
+				
+				
+				
 				$( "#email-input-id" ).leadSpendEmail( { debug: true } );
-				$("#demo-form-id").validate();
+				$( "#demo-form-id" ).validate();
 			});
 		</script>
-		
 	</head>
 	<body>
 		<form id="demo-form-id">
