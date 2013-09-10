@@ -119,6 +119,10 @@
 			}
 		};
 		
+		this._getResultAddress = function(){
+			return this.resultAddress;
+		};
+		
 		// Main email validation function.  Bound to focusout event of input.
 		this.validateEmailInput = function(){
 			emailAddress = $( this.element ).val();
