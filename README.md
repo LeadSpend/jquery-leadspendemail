@@ -32,7 +32,6 @@ The following options may be passed to the plugin:
 <tbody>
 <tr><th>Name</th><th>Description</th><th>Value</th></tr>
 <tr><td>timeout</td><td>The timeout, in seconds.</td><td>Integer (in the range [3, 15])</td></tr>
-<tr><td>resultInputSuffix</td><td>The suffix to append to the hidden result input.</td><td>String</td></tr>
 <tr><td>debug</td><td>Enables console logging of events/data.</td><td>Boolean</td></tr>
 </tbody>
 </table>
@@ -45,8 +44,6 @@ The email validation result will be stored in a hidden input as part of your for
 * name = "{name of your email input}-result"
 * id = "{id of your email input}-result" (or "" if ID was not set on your form)
 * class = "leadSpendEmail-result"
-
-Note: If a custom resultInputSuffix is used, it will replace "-result" in the above examples.
 
 Result Codes and What They Mean
 -------------------

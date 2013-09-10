@@ -14,7 +14,6 @@
 	var pluginName = 'leadSpendEmail',
 	defaults = {
 		timeout: 5,
-		resultInputSuffix: "-result",
 		debug: false
 	};
 	
@@ -66,21 +65,23 @@
 			elementID = $( this.element ).attr( "id" );
 			elementName = $( this.element ).attr( "name" );
 			
+			resultElementSuffix = "-result";
+			
 			// append options.suffix to each attr that is set and create the hidden input for the result
 			if ( elementID ) {
-				resultElementID = elementID + this.options.resultInputSuffix;
+				resultElementID = elementID + resultInputSuffix;
 			} else {
 				resultElementID = "";
 			}
 			
 			if ( elementName ){
-				resultElementName = elementName + this.options.resultInputSuffix;
+				resultElementName = elementName + resultInputSuffix;
 			} else {
 				resultElementName = "";
 			}
 			
 			// Class attr will always be leadSpendEmail[+suffix]
-			resultElementClass = "leadSpendEmail" + this.options.resultInputSuffix;
+			resultElementClass = "leadSpendEmail" + resultElementSuffix;
 			
 			resultElementHtml = "<input class=\"" 	+ resultElementClass +
 									   "\" id=\"" 	+ resultElementID +
@@ -150,8 +151,9 @@
 	// Code to be called on plugin init
 	LeadSpendEmail.prototype.init = function () {
 		$( this.element ).addClass( "leadSpendEmail" );
-		this._createResultElement();  // create the hidden element where result codes will be stored
-		return this;//$( this.element ).on( "focusout", $.proxy( this.validateEmailInput, this ) );	
+		this._createResultElement();  	// create the hidden element where result codes will be stored
+		$( this.element ).on( "focusout", $.proxy( this.validateEmailInput, this ) );	
+		return this; 					// TODO: should I return LeadSpendEmail or Element?
 	};
 	
 	// Constructor wrapper, preventing against multiple instantiations
