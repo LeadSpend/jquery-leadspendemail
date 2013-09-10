@@ -149,6 +149,7 @@
 
 	// Code to be called on plugin init
 	LeadSpendEmail.prototype.init = function () {
+		$( this.element ).addClass( "leadSpendEmail" );
 		this._createResultElement();  // create the hidden element where result codes will be stored
 		return $( this.element ).on( "focusout", $.proxy( this.validateEmailInput, this ) );	
 	};
@@ -166,5 +167,5 @@
 
 // Validate all leadSpendEmail fields by default
 $( document ).ready( function(){
-	$( ".leadSpendEmail" ).leadSpendEmail();
+	$( ".leadSpendEmail-noconfig" ).leadSpendEmail();
 } );
