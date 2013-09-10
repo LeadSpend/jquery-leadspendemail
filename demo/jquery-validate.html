@@ -23,6 +23,7 @@
 					function( emailValue, element ) {	// actual validation function.  Return true if valid.
 						console.log( emailValue );
 						console.log( element );
+						console.log( $(element).next(".leadSpendEmail-result") );
 						return false; 					// validity of address
 					},
 					function(value, field){				// function to determine result message
