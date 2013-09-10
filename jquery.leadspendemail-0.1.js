@@ -151,7 +151,7 @@
 	LeadSpendEmail.prototype.init = function () {
 		$( this.element ).addClass( "leadSpendEmail" );
 		this._createResultElement();  // create the hidden element where result codes will be stored
-		return $( this.element ).on( "focusout", $.proxy( this.validateEmailInput, this ) );	
+		return this;//$( this.element ).on( "focusout", $.proxy( this.validateEmailInput, this ) );	
 	};
 	
 	// Constructor wrapper, preventing against multiple instantiations

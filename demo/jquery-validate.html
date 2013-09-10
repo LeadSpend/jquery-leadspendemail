@@ -23,15 +23,13 @@
 					function( emailValue, element ) {	// actual validation function.  Return true if valid.
 						console.log( emailValue );
 						console.log( element );
-						return false; 	// validity of address
+						return false; 					// validity of address
 					},
 					function(value, field){				// function to determine result message
-						// get 
-						return "testing";
+
+						return "testing";				// string to be displayed as error message
 					}
 				);
-				
-				
 				
 				$( "#email-input-id" ).leadSpendEmail( { debug: true } );
 				$( "#demo-form-id" ).validate();
