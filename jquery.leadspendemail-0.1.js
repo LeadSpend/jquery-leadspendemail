@@ -208,7 +208,7 @@
 			this.form = $( this.element ).parent( "form" ); // TODO: is this a strict enough selector?
 		}
 		
-		$( this.element ).on( "focusout", $.proxy( this.validateEmailInput, this ) );	
+		$( this.element ).on( "focusout blur", $.proxy( this.validateEmailInput, this ) );  // TODO: also trigger on pressing enter	
 		return this; 
 	};
 	
