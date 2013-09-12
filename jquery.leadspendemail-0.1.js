@@ -162,6 +162,8 @@
 		}
 		
 		this._handleDelaySubmit = function(){
+			console.log( "handleSubmit entered" );
+			console.log( this );
 			if ( this.submitPressed ){
 				console.log( "handleSubmit executing" );
 				this.submitPressed = false;
