@@ -20,11 +20,12 @@
 			$( document ).ready( function(){
 				// Set jQuery Validate to automatically ignore leadSpendEmail fields during onkeyup validation
 				(function( $ ){
+					
+					// decorate the default onkeyup to ignore leadSpendEmail typing
 					var defaultOnKeyup = jQuery.validator.defaults.onkeyup;
 					
 					jQuery.validator.setDefaults( {
 						onkeyup: function( element ){
-							console.log("onkeyup!");
 							if ( !$( element ).hasClass( 'leadSpendEmail' ) ) { // $(element).attr('name') != $(".leadSpendEmail").attr("name")) 
 								defaultOnKeyup.apply( this, arguments );
 							}
@@ -34,13 +35,37 @@
 						"leadSpendEmail",
 						function( emailValue, element ) {	// actual validation function.  Return true if valid.
 							console.log( "leadSpendEmail jqv method" );
-							console.log( emailValue );
-							console.log( element );
 							console.log( $( element ).next( ".leadSpendEmail-result" ) );
-							return false; 					// validity of address
+							
+							result = $( element ).next( ".leadSpendEmail-result" ).val();
+							switch ( result ){
+								case "illegitimate":
+								case "unreachable":
+								case "undeliverable":
+								case "pending":	// email result has not yet been returned.
+									return false;
+								
+								case "unknown":
+								case "disposable":
+								case "valid":
+								case "error": // only enabled in debug mode
+									return true;
+							}
+							return false; // always return a value, even if code is crazy
 						},
-						function( value, field ){				// function to determine result message
-							return $( field ).next( ".leadSpendEmail-result" ).val();				 // string to be displayed as error message
+						function( value, field ){	// function to determine error message
+							console.log( "leadSpendEmail jqv display message generation" );
+							result = $( element ).next( ".leadSpendEmail-result" ).val();
+							switch ( result ){
+								case "illegitimate":
+								case "unreachable":
+								case "undeliverable":
+									return "Sorry, this email address appears to be " + result;
+								
+								case "pending":
+									return "Verifying email address...";
+							}
+							return "";
 						} );
 				}( jQuery ) );
 				
