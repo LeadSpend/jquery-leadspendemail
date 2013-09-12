@@ -168,8 +168,8 @@
 			if ( this.submitPressed ){
 				console.log( "handleSubmit executing" );
 				this.submitPressed = false;
-				$( this.element ).parent( "form" ).unbind( "submit" );
-				console.log( "submit enabled" );
+				$( this.form ).unbind( "submit" );
+				console.log( "submitting form..." );
 				$( this.element ).parent( "form" ).submit()
 			}
 		};
