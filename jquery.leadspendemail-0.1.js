@@ -14,7 +14,9 @@
 	var pluginName = 'leadSpendEmail',
 	defaults = {
 		timeout: 5,
-		debug: false
+		debug: false,
+		delaySubmit: false
+		//,submitCallback: null
 	};
 	
 	// Constructor
@@ -24,6 +26,8 @@
 		this.options = $.extend( {}, defaults, options );
 		this._defaults = defaults;
 		this._name = pluginName;
+		
+		this.submitPressed = false;	// for tracking form submit
 		
 		this.apiUrl = "https://secondary.api.leadspend.com/v2/validity/"
         
@@ -49,7 +53,7 @@
 		// (to be called using $.proxy for proper context)
 		this._jsonpValidateEmailFail = function( jqXHR, textStatus, errorThrown ){
 			if ( this.options.debug ){
-				console.log( "LeadSpend API Call Failed.  Logging jqXHR, textStatus, and errorThrown:");
+				console.log( "Leadspend API $getJSON().fail() called. Logging jqXHR, textStatus, and errorThrown:" );
 				console.log( jqXHR );
 				console.log( textStatus );
 				console.log( errorThrown );
