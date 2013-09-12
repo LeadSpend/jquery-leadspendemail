@@ -23,15 +23,16 @@
 					function( emailValue, element ) {	// actual validation function.  Return true if valid.
 						console.log( emailValue );
 						console.log( element );
-						console.log( $(element).next( ".leadSpendEmail-result" ) );
+						console.log( $( element ).next( ".leadSpendEmail-result" ) );
 						return false; 					// validity of address
 					},
-					function(value, field){				// function to determine result message
-						return "testing";				// string to be displayed as error message
+					function( value, field ){				// function to determine result message
+						return $( element ).next( ".leadSpendEmail-result" ).val();				 // string to be displayed as error message
 					}
 				);
 				
-				$( "#email-input-id" ).leadSpendEmail( { debug: true } );
+				$( "#email-input-id" ).leadSpendEmail( { debug: true,
+													     timeout: 15 } );
 				$( "#demo-form-id" ).validate();
 			});
 		</script>
