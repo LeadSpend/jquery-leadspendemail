@@ -19,13 +19,13 @@
 		<script type="text/javascript">
 			$( document ).ready( function(){
 				// Set jQuery Validate to automatically ignore leadSpendEmail fields during onkeyup validation
-				/*jQuery.validator.setDefaults( {
+				jQuery.validator.setDefaults( {
 					onkeyup: function( element ){
 						console.log("onkeyup!");
-						if ( !$( element ).hasClass( 'leadSpendEmail' ) ) {
+						if ( $(element).attr('name') != $(".leadSpendEmail").attr("name")) {//!$( element ).hasClass( 'leadSpendEmail' ) ) {
 							$.validator.defaults.onkeyup.apply( this,arguments );
 						}
-					} } );*/
+					} } );
 				
 				jQuery.validator.addMethod(
 					"leadSpendEmail",
