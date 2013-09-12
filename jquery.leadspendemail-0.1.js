@@ -100,6 +100,9 @@
 			if ( resultPending ){
 				this.resultPending = true;
 				this._setResultValue( "pending" );
+				if ( this.options.delaySubmit ){
+					this._bindDelaySubmit();
+				}
 			} else{
 				this.resultPending = false;
 			}
@@ -124,8 +127,22 @@
 			}
 		};
 		
+		// returns the email address associated with the current result
 		this._getResultAddress = function(){
 			return this.resultAddress;
+		};
+		
+		this._bindDelaySubmit = function(){
+			// $element.parent( form ).on( "submit", $.proxy(this, function(){
+			//		submitPressed = true;
+			//		return false;   // block form submit
+			//	});
+		}
+		
+		this._handleDelaySubmit = function(){
+			// submitPressed = false;
+			// form.unbind( "submit" );
+			// form.submit()
 		};
 		
 		// Main email validation function.  Bound to focusout event of input.
