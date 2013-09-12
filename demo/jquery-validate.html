@@ -24,7 +24,7 @@
 						console.log( emailValue );
 						console.log( element );
 						console.log( $(element).next(".leadSpendEmail-result") );
-						$(element).next(".leadSpendEmail-result").on( "change", function( element ){
+						$(element).next(".leadSpendEmail-result").on( "change", function(){
 							console.log( "leadSpendEmail rule onchange fired" );
 						});
 						return false; 					// validity of address
@@ -47,7 +47,7 @@
 			</p>
 			<p>
 				<label>Email Address:</label>
-				<input id="email-input-id" class="email required" name="email-input-name" value="">
+				<input id="email-input-id" class="required" name="email-input-name" value="">
 			</p>
 			<input type="submit" name="submit">
 		</form>
