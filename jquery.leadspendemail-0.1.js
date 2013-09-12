@@ -132,11 +132,13 @@
 			return this.resultAddress;
 		};
 		
+		// Binds the submit-delaying function to form submit
 		this._bindDelaySubmit = function(){
-			// $element.parent( form ).on( "submit", $.proxy(this, function(){
+			 console.log( "bindSubmit called" );//$( this.element )).parent( form ).on( "submit", $.proxy(this, function(){
 			//		submitPressed = true;
 			//		return false;   // block form submit
 			//	});
+			//return false;
 		}
 		
 		this._handleDelaySubmit = function(){
