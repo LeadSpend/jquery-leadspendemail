@@ -84,8 +84,7 @@
 				$( "#email-input-id" ).leadSpendEmail( { debug: true,
 													     timeout: 15,
 														 resultCallback: function( element, resultElement ){
-															console.log( this );
-															$( this ).siblings( ".leadSpendEmail" ).valid();
+															$( element ).valid();
 														 } } );
 				$( "#demo-form-id" ).validate();
 				
