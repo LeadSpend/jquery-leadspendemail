@@ -83,7 +83,7 @@
 													     timeout: 15,
 														 delaySubmit: true,
 														 resultCallback: function( element, resultElement ){
-															$( element ).valid();
+															$( element ).parent( "form" ).validate();
 														 } } );
 				$( "#demo-form-id" ).validate();
 				
