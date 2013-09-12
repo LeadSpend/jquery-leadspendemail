@@ -135,12 +135,10 @@
 				}
 				
 				// Trigger change event for external use/binding
-				console.log( "setResultValue triggering change" );
 				$( this.resultElement ).trigger( "change" );
 				
 				// call the resultCallback (if it has been set)
 				if ( typeof( this.options.resultCallback ) != "undefined" ){
-					console.log( "trying to execute resultCallback function" );
 					this.options.resultCallback( this.element, this.resultElement );
 				}
 			}
@@ -154,7 +152,7 @@
 		// Binds the submit-delaying function to form submit
 		this._bindDelaySubmit = function(){
 			 console.log( "bindSubmit called" );
-			 console.log( this.form );
+			 console.log( $( this.form ) );
 			 $( this.form ).on( "submit", $.proxy( function(){
 				console.log( "bindSubmit callback executing" );
 				console.log( "setting submitPressed to true" )
