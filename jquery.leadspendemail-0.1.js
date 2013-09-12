@@ -43,7 +43,6 @@
 				console.log( data );			// json response
 			}
 			
-			this._setResultPending( false );
 			this._setResultValue( data.result );
 		};
 		
@@ -99,7 +98,6 @@
 		this._setResultPending = function( resultPending ){
 			if ( resultPending ){
 				this.resultPending = true;
-				this._setResultValue( "pending" );
 				if ( this.options.delaySubmit ){
 					this._bindDelaySubmit();
 				}
@@ -124,8 +122,17 @@
 		this._setResultValue = function( value ){
 			// Only update value and trigger the change event if new value is different
 			if ( $( this.resultElement ).val() != value ){
-				$( this.resultElement ).val( value );
+				// Pending is a special state, and should be handled separately
+				
 				if ( this.options.debug ) console.log( "Setting resultInput value to: " + value );
+				if ( value == "pending" ){
+					this._setResultPending( true );
+				} else {
+					this._setResultPending( false );
+				}
+				
+				$( this.resultElement ).val( value );
+
 				$( this.resultElement ).trigger( "change" );
 			}
 		};
@@ -168,7 +175,7 @@
 				
 				// Now test the pending address.  As long as it is different from the currently pending address, continue.
 				if ( emailAddress != this._getResultAddress() ){
-					this._setResultPending( true );
+					this._setResultValue( "pending" );
 					this._setResultAddress( emailAddress );
 					this._jsonpValidateEmail( emailAddress );
 				}
