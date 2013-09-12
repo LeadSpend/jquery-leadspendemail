@@ -55,7 +55,8 @@
 						},
 						function( value, field ){	// function to determine error message
 							console.log( "leadSpendEmail jqv display message generation" );
-							result = $( element ).next( ".leadSpendEmail-result" ).val();
+							console.log(field);
+							result = $( field ).next( ".leadSpendEmail-result" ).val();
 							switch ( result ){
 								case "illegitimate":
 								case "unreachable":
