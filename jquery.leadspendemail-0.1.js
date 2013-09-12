@@ -139,7 +139,7 @@
 				$( this.resultElement ).trigger( "change" );
 				
 				// call the resultCallback (if it has been set)
-				if ( typeof( this.options.resultCallback ) == typeof( function(){} ) ){
+				if ( typeof( this.options.resultCallback ) != "undefined" ){
 					console.log( "trying to execute resultCallback function" );
 					this.options.resultCallback( this.element, this.resultElement );
 				}
