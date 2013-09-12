@@ -27,7 +27,7 @@
 		this._defaults = defaults;
 		this._name = pluginName;
 		
-		this.apiUrl = "https://secondary.api.leadspend.com/v2/validity/"
+		this.apiUrl = "https://primary.api.leadspend.com/v2/validity/"
         
 		// Actual jsonp call to the LeadSpend API
 		this._jsonpValidateEmail = function( emailAddress ) {
