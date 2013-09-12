@@ -140,16 +140,19 @@
 			 console.log( "bindSubmit called" );
 			 $( this.element ).parent( "form" ).on( "submit", $.proxy( function(){
 				this.submitPressed = true;
+				console.log( "submit blocked" );
 				return false;   // block form submit
 			return false;
 			}, this) );
 		}
 		
 		this._handleDelaySubmit = function(){
+			console.log( "handleSubmit called" );
 			if ( this.submitPressed ){
 				this.submitPressed = false;
 				$( this.element ).parent( "form" ).unbind( "submit" );
-				$( this.element ).parent( "form" ).submit()
+				console.log( "submit enabled" );
+				// $( this.element ).parent( "form" ).submit()
 			}
 		};
 		
