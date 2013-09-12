@@ -19,26 +19,30 @@
 		<script type="text/javascript">
 			$( document ).ready( function(){
 				// Set jQuery Validate to automatically ignore leadSpendEmail fields during onkeyup validation
-				jQuery.validator.setDefaults( {
-					onkeyup: function( element ){
-						console.log("onkeyup!");
-						if ( $(element).attr('name') != $(".leadSpendEmail").attr("name")) {//!$( element ).hasClass( 'leadSpendEmail' ) ) {
-							$.validator.defaults.onkeyup.apply( this,arguments );
-						}
-					} } );
+				(function( $ ){
+					var defaultOnKeyup = jQuery.validator.defaults.onkeyup;
+					
+					jQuery.validator.setDefaults( {
+						onkeyup: function( element ){
+							console.log("onkeyup!");
+							if ( !$( element ).hasClass( 'leadSpendEmail' ) ) { // $(element).attr('name') != $(".leadSpendEmail").attr("name")) 
+								dfaultOnKeyup.apply( this, arguments );
+							}
+						} } );
 				
-				jQuery.validator.addMethod(
-					"leadSpendEmail",
-					function( emailValue, element ) {	// actual validation function.  Return true if valid.
-						console.log( "leadSpendEmail jqv method" );
-						console.log( emailValue );
-						console.log( element );
-						console.log( $( element ).next( ".leadSpendEmail-result" ) );
-						return false; 					// validity of address
-					},
-					function( value, field ){				// function to determine result message
-						return $( field ).next( ".leadSpendEmail-result" ).val();				 // string to be displayed as error message
-					} );
+					jQuery.validator.addMethod(
+						"leadSpendEmail",
+						function( emailValue, element ) {	// actual validation function.  Return true if valid.
+							console.log( "leadSpendEmail jqv method" );
+							console.log( emailValue );
+							console.log( element );
+							console.log( $( element ).next( ".leadSpendEmail-result" ) );
+							return false; 					// validity of address
+						},
+						function( value, field ){				// function to determine result message
+							return $( field ).next( ".leadSpendEmail-result" ).val();				 // string to be displayed as error message
+						} );
+				}( jQuery ) );
 				
 				$( "#email-input-id" ).leadSpendEmail( { debug: true,
 													     timeout: 15 } );
