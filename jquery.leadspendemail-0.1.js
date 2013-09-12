@@ -206,8 +206,7 @@
 		
 		if ( this.options.delaySubmit ){			
 			this.submitPressed = false;	// for tracking form submit
-			this.form = $( this.element ).closest( "form" ); // TODO: is this a strict enough selector?
-			console.log( this.form );
+			this.form = $( this.element ).closest( "form" );
 		}
 		
 		$( this.element ).on( "focusout blur", $.proxy( this.validateEmailInput, this ) );  // TODO: also trigger on pressing enter	
