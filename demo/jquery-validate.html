@@ -24,7 +24,7 @@
 						console.log( emailValue );
 						console.log( element );
 						console.log( $(element).next(".leadSpendEmail-result") );
-						$( element ).on( "change", function( element ){
+						$(element).next(".leadSpendEmail-result").on( "change", function( element ){
 							console.log( "leadSpendEmail rule onchange fired" );
 						});
 						return false; 					// validity of address
