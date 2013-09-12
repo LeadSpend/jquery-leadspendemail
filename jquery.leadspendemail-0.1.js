@@ -138,7 +138,6 @@
 				console.log( "setResultValue triggering change" );
 				$( this.resultElement ).trigger( "change" );
 				
-				
 				// call the resultCallback (if it has been set)
 				if ( typeof( this.options.resultCallback ) == typeof( function(){} ) ){
 					console.log( "trying to execute resultCallback function" );
@@ -163,8 +162,8 @@
 		}
 		
 		this._handleDelaySubmit = function(){
-			console.log( "handleSubmit called" );
 			if ( this.submitPressed ){
+				console.log( "handleSubmit executing" );
 				this.submitPressed = false;
 				$( this.element ).parent( "form" ).unbind( "submit" );
 				console.log( "submit enabled" );
