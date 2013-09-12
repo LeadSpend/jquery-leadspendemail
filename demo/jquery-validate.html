@@ -79,14 +79,17 @@
 					// make sure the field is revalidated as soon as a result is returned
 
 				}( jQuery ) );
-									
+				
+				// set the resultCallback 	
 				$( "#email-input-id" ).leadSpendEmail( { debug: true,
-													     timeout: 15 } );
+													     timeout: 15,
+														 resultCallback: function(){
+															$( this ).siblings( ".leadSpendEmail" ).valid();
+														 } } );
 				$( "#demo-form-id" ).validate();
-						
-				$( ".leadSpendEmail-result" ).on( "change", function( event ){
-					$( this ).siblings( ".leadSpendEmail" ).valid();
-				  });
+				
+				// TODO: move this into above code
+
 			});
 		</script>
 	</head>

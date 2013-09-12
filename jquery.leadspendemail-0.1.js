@@ -15,7 +15,8 @@
 	defaults = {
 		timeout: 5,
 		debug: false,
-		delaySubmit: false // note: true expects a well-formed form! (i.e. email input inside form element)
+		delaySubmit: false, // note: true expects a well-formed form! (i.e. email input inside form element)
+		resultCallback: null
 	};
 	
 	// Constructor
@@ -132,6 +133,11 @@
 				
 				$( this.resultElement ).val( value );
 				$( this.resultElement ).trigger( "change" );
+			}
+			
+			// call the resultCallback if it has been set
+			if ( typeof( this.options.resultCallback ) == typeof( function(){} ) ){
+				this.options.resultCallback();
 			}
 		};
 		
