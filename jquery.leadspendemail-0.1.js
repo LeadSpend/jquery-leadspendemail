@@ -172,7 +172,7 @@
 				this.submitPressed = false;
 				$( this.form ).unbind( "submit" );
 				console.log( "submitting form..." );
-				$( this.element ).parent( "form" ).submit()
+				$( this.form ).submit();
 			}
 		};
 		
