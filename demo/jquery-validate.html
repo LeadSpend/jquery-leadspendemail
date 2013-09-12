@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>jQuery LeadSpend Email Validation Demo - jQuery Validate</title>
-		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css" type="text/css" media="screen" title="default" />
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" type="text/css" media="screen" title="default" />
 		
 		<script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.js"></script>
 		<script type="text/javascript" src="../jquery.leadspendemail-0.1.js"></script>
@@ -74,15 +74,16 @@
 			});
 		</script>
 	</head>
-	<body>
-		<form id="demo-form-id">
+	<body class="container">
+		<form id="demo-form-id" class="form-horizontal">
+			<div class="form-group">
 				<label>Name:</label>
 				<input id="name-input-id" class="required" name="name-input-name" value="">
-			</p>
-			<p>
+			</div>
+			<div class="form-group">
 				<label>Email Address:</label>
 				<input id="email-input-id" class="required" name="email-input-name" value="">
-			</p>
+			</div>
 			<input type="submit" name="submit">
 		</form>
 	</body>
