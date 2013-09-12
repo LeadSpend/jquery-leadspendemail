@@ -71,9 +71,10 @@
 						} );
 				}( jQuery ) );
 				
+				// make sure the field is revalidated as soon as a result is returned
 				$( ".leadSpendEmail-result" ).on("change", function( event ){
 					$( this ).siblings( "leadSpendEmail" ).valid();
-				  })
+				  });
 				
 				$( "#email-input-id" ).leadSpendEmail( { debug: true,
 													     timeout: 15 } );
