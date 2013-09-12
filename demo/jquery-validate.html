@@ -83,6 +83,7 @@
 				// set the resultCallback 	
 				$( "#email-input-id" ).leadSpendEmail( { debug: true,
 													     timeout: 15,
+														 delaySubmit: true,
 														 resultCallback: function( element, resultElement ){
 															$( element ).valid();
 														 } } );
