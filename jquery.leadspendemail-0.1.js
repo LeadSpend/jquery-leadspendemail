@@ -103,9 +103,6 @@
 				}
 			} else{
 				this.resultPending = false;
-				if ( this.options.delaySubmit ){
-					this._handleDelaySubmit();
-				}
 			}
 		};
 		
@@ -140,6 +137,11 @@
 				// call the resultCallback (if it has been set)
 				if ( typeof( this.options.resultCallback ) != "undefined" ){
 					this.options.resultCallback( this.element, this.resultElement );
+				}
+				
+				// handle delaySubmit
+				if ( this.options.delaySubmit && value != "pending" ){
+					this._handleDelaySubmit();
 				}
 			}
 		};
