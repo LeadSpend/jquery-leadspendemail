@@ -16,7 +16,6 @@
 		timeout: 5,
 		debug: false,
 		delaySubmit: false // note: true expects a well-formed form! (i.e. email input inside form element)
-		//,submitCallback: null
 	};
 	
 	// Constructor
