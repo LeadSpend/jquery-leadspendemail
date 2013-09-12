@@ -71,15 +71,17 @@
 						} );
 				
 					// make sure the field is revalidated as soon as a result is returned
-					$( ".leadSpendEmail-result" ).on( "change", function( event ){
-						alert("hello world");
-						$( this ).siblings( "leadSpendEmail" ).valid();
-					  });
+
 				}( jQuery ) );
-				
+									
 				$( "#email-input-id" ).leadSpendEmail( { debug: true,
 													     timeout: 15 } );
 				$( "#demo-form-id" ).validate();
+						
+				$( ".leadSpendEmail-result" ).on( "change", function( event ){
+					alert("hello world");
+					$( this ).siblings( "leadSpendEmail" ).valid();
+				  });
 			});
 		</script>
 	</head>
