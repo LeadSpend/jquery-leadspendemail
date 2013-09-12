@@ -133,7 +133,7 @@
 				
 				$( this.resultElement ).val( value );
 				console.log("CHANGE EVENT SHOULD BE TRIGGERED");
-				console.log(this.resultElement);
+				console.log( $( this.resultElement ).trigger( "change" ) );
 				$( this.resultElement ).trigger( "change" );
 			}
 		};
