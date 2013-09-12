@@ -122,24 +122,28 @@
 		this._setResultValue = function( value ){
 			// Only update value and trigger the change event if new value is different
 			if ( $( this.resultElement ).val() != value ){
-				// Pending is a special state, and should be handled separately
-				
 				if ( this.options.debug ) console.log( "Setting resultInput value to: " + value );
+				
+				// Set actual state of element
+				$( this.resultElement ).val( value );
+				
+				// Update internal state to pending
 				if ( value == "pending" ){
 					this._setResultPending( true );
 				} else {
 					this._setResultPending( false );
 				}
 				
-				$( this.resultElement ).val( value );
+				// Trigger change event for external use/binding
 				console.log( "setResultValue triggering change" );
 				$( this.resultElement ).trigger( "change" );
-			}
-			
-			// call the resultCallback if it has been set
-			if ( typeof( this.options.resultCallback ) == typeof( function(){} ) ){
-				console.log( "trying to execute resultCallback function" );
-				this.options.resultCallback( this.element, this.resultElement );
+				
+				
+				// call the resultCallback (if it has been set)
+				if ( typeof( this.options.resultCallback ) == typeof( function(){} ) ){
+					console.log( "trying to execute resultCallback function" );
+					this.options.resultCallback( this.element, this.resultElement );
+				}
 			}
 		};
 		
