@@ -36,7 +36,7 @@
 						return false; 					// validity of address
 					},
 					function( value, field ){				// function to determine result message
-						return $( element ).next( ".leadSpendEmail-result" ).val();				 // string to be displayed as error message
+						return $( field ).next( ".leadSpendEmail-result" ).val();				 // string to be displayed as error message
 					} );
 				
 				$( "#email-input-id" ).leadSpendEmail( { debug: true,
