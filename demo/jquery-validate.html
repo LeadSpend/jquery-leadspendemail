@@ -41,8 +41,6 @@
 				jQuery.validator.addMethod(
 					"leadSpendEmail",
 					function( emailValue, element ) {	// actual validation function.  Return true if valid.
-						console.log( $( element ).next( ".leadSpendEmail-result" ) );
-						
 						result = $( element ).siblings( ".leadSpendEmail-result" ).val();
 						switch ( result ){
 							case "illegitimate":
@@ -61,8 +59,6 @@
 					},
 					function( value, field ){	// function to determine error message
 						result = $( field ).siblings( ".leadSpendEmail-result" ).val();
-						console.log(field);
-						console.log(result);
 						switch ( result ){
 							case "illegitimate":
 							case "unreachable":
