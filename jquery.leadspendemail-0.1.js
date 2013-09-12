@@ -154,7 +154,10 @@
 		// Binds the submit-delaying function to form submit
 		this._bindDelaySubmit = function(){
 			 console.log( "bindSubmit called" );
-			 $( this.element ).parent( "form" ).on( "submit", $.proxy( function(){
+			 console.log( this.form );
+			 $( this.form ).on( "submit", $.proxy( function(){
+				console.log( "bindSubmit callback executing" );
+				console.log( "setting submitPressed to true" )
 				this.submitPressed = true;
 				console.log( "submit blocked" );
 				return false;   // block form submit
@@ -163,7 +166,7 @@
 		
 		this._handleDelaySubmit = function(){
 			console.log( "handleSubmit entered" );
-			console.log( this );
+			console.log( "this.submitPressed = " + this.submitPressed.toString() );
 			if ( this.submitPressed ){
 				console.log( "handleSubmit executing" );
 				this.submitPressed = false;
