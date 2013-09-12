@@ -34,7 +34,6 @@
 					jQuery.validator.addMethod(
 						"leadSpendEmail",
 						function( emailValue, element ) {	// actual validation function.  Return true if valid.
-							console.log( "leadSpendEmail jqv method" );
 							console.log( $( element ).next( ".leadSpendEmail-result" ) );
 							
 							result = $( element ).siblings( ".leadSpendEmail-result" ).val();
@@ -54,7 +53,6 @@
 							return false; // always return a value, even if code is crazy
 						},
 						function( value, field ){	// function to determine error message
-							console.log( "leadSpendEmail jqv display message generation" );
 							result = $( field ).siblings( ".leadSpendEmail-result" ).val();
 							console.log(field);
 							console.log(result);
