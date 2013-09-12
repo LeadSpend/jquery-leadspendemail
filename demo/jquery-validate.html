@@ -30,6 +30,7 @@
 				jQuery.validator.addMethod(
 					"leadSpendEmail",
 					function( emailValue, element ) {	// actual validation function.  Return true if valid.
+						console.log( "leadSpendEmail jqv method" );
 						console.log( emailValue );
 						console.log( element );
 						console.log( $( element ).next( ".leadSpendEmail-result" ) );
