@@ -90,7 +90,7 @@
 									   "\" id=\"" 	+ resultElementID +
 									   "\" name=\"" + resultElementName + "\">";
 			this.resultElement = $( resultElementHtml );
-			this.resultElement.hide();
+			//this.resultElement.hide();
 			$( this.element ).after( this.resultElement );
 		}
 		
@@ -149,7 +149,6 @@
 				this.submitPressed = true;
 				console.log( "submit blocked" );
 				return false;   // block form submit
-			return false;
 			}, this) );
 		}
 		
@@ -159,7 +158,7 @@
 				this.submitPressed = false;
 				$( this.element ).parent( "form" ).unbind( "submit" );
 				console.log( "submit enabled" );
-				// $( this.element ).parent( "form" ).submit()
+				$( this.element ).parent( "form" ).submit()
 			}
 		};
 		
