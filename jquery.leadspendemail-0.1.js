@@ -15,7 +15,7 @@
 	defaults = {
 		timeout: 5,
 		debug: false,
-		delaySubmit: false
+		delaySubmit: false // note: true expects a well-formed form! (i.e. email input inside form element)
 		//,submitCallback: null
 	};
 	
@@ -26,8 +26,6 @@
 		this.options = $.extend( {}, defaults, options );
 		this._defaults = defaults;
 		this._name = pluginName;
-		
-		this.submitPressed = false;	// for tracking form submit
 		
 		this.apiUrl = "https://secondary.api.leadspend.com/v2/validity/"
         
@@ -52,15 +50,17 @@
 		// Called on fail of jsonp email validation call
 		// (to be called using $.proxy for proper context)
 		this._jsonpValidateEmailFail = function( jqXHR, textStatus, errorThrown ){
+			this._setResultPending( false );
+			
 			if ( this.options.debug ){
 				console.log( "Leadspend API $getJSON().fail() called. Logging jqXHR, textStatus, and errorThrown:" );
 				console.log( jqXHR );
 				console.log( textStatus );
 				console.log( errorThrown );
+				this._setResultValue( "error" );
+			} else {
+				this._setResultValue( "unknown" );
 			}
-			
-			this._setResultPending( false );
-			this._setResultValue( "error" );
 		};
 		
 		// Creates the resultElement, where the email result is stored and accessible for any validation front/back end
@@ -105,6 +105,9 @@
 				}
 			} else{
 				this.resultPending = false;
+				if ( this.options.delaySubmit ){
+					this._handleDelaySubmit();
+				}
 			}
 		};
 		
@@ -134,17 +137,20 @@
 		
 		// Binds the submit-delaying function to form submit
 		this._bindDelaySubmit = function(){
-			 console.log( "bindSubmit called" );//$( this.element )).parent( form ).on( "submit", $.proxy(this, function(){
-			//		submitPressed = true;
-			//		return false;   // block form submit
-			//	});
-			//return false;
+			 console.log( "bindSubmit called" );
+			 $( this.element ).parent( "form" ).on( "submit", $.proxy( function(){
+				this.submitPressed = true;
+				return false;   // block form submit
+			return false;
+			}, this) );
 		}
 		
 		this._handleDelaySubmit = function(){
-			// submitPressed = false;
-			// form.unbind( "submit" );
-			// form.submit()
+			if ( this.submitPressed ){
+				this.submitPressed = false;
+				$( this.element ).parent( "form" ).unbind( "submit" );
+				$( this.element ).parent( "form" ).submit()
+			}
 		};
 		
 		// Main email validation function.  Bound to focusout event of input.
@@ -173,10 +179,17 @@
 
 	// Code to be called on plugin init
 	LeadSpendEmail.prototype.init = function () {
+		// Modify form and initialize option-based variables
 		$( this.element ).addClass( "leadSpendEmail" );
 		this._createResultElement();  	// create the hidden element where result codes will be stored
+		
+		if ( this.options.delaySubmit ){			
+			this.submitPressed = false;	// for tracking form submit
+			this.form = $( this.element ).parent( "form" ); // TODO: is this a strict enough selector?
+		}
+		
 		$( this.element ).on( "focusout", $.proxy( this.validateEmailInput, this ) );	
-		return this; 					// TODO: should I return LeadSpendEmail or Element?
+		return this; 
 	};
 	
 	// Constructor wrapper, preventing against multiple instantiations
