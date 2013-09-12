@@ -72,7 +72,8 @@
 				}( jQuery ) );
 				
 				// make sure the field is revalidated as soon as a result is returned
-				$( ".leadSpendEmail-result" ).on("change", function( event ){
+				$( ".leadSpendEmail-result" ).on( "change", function( event ){
+					alert("hello world");
 					$( this ).siblings( "leadSpendEmail" ).valid();
 				  });
 				
