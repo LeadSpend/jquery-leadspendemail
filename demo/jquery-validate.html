@@ -79,8 +79,7 @@
 				$( "#demo-form-id" ).validate();
 						
 				$( ".leadSpendEmail-result" ).on( "change", function( event ){
-					alert("hello world");
-					console.log($( this ).siblings( "leadSpendEmail" ));//.valid();
+					$( this ).siblings( ".leadSpendEmail" ).valid();
 				  });
 			});
 		</script>
