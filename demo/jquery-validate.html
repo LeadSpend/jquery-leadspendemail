@@ -18,6 +18,14 @@
 		<script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
 		<script type="text/javascript">
 			$( document ).ready( function(){
+				// Set jQuery Validate to automatically ignore leadSpendEmail fields during onkeyup validation
+				jQuery.validator.setDefaults( {
+					onkeyup:function( element ){
+						if ( !$( element ).hasClass( 'leadSpendEmail' ) ) {
+							$.validator.defaults.onkeyup.apply( this,arguments );
+						}
+					} } );
+				
 				jQuery.validator.addMethod(
 					"leadSpendEmail",
 					function( emailValue, element ) {	// actual validation function.  Return true if valid.
@@ -28,8 +36,7 @@
 					},
 					function( value, field ){				// function to determine result message
 						return $( element ).next( ".leadSpendEmail-result" ).val();				 // string to be displayed as error message
-					}
-				);
+					} );
 				
 				$( "#email-input-id" ).leadSpendEmail( { debug: true,
 													     timeout: 15 } );

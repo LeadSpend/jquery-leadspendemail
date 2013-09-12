@@ -202,7 +202,7 @@
 	};
 	
 	// Constructor wrapper, preventing against multiple instantiations
-	$.fn[pluginName] = function ( options ) {
+	$.fn[pluginName] = function ( options ){
 		return this.each(function () {
 			if ( !$.data( this, 'plugin_' + pluginName ) ) {
 				$.data( this, 'plugin_' + pluginName, 
@@ -210,7 +210,7 @@
 			}
 		});
 	}
-}( jQuery, window, document ));
+}( jQuery, window, document ) );
 
 // Validate all leadSpendEmail fields by default
 $( document ).ready( function(){
