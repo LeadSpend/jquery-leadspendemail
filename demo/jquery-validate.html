@@ -47,7 +47,7 @@
 								
 								case "unknown":
 								case "disposable":
-								case "valid":
+								case "verified":
 								case "error": // only enabled in debug mode
 									return true;
 							}
@@ -70,6 +70,10 @@
 							return "";
 						} );
 				}( jQuery ) );
+				
+				$( ".leadSpendEmail-result" ).on("change", function( event ){
+					$( this ).siblings( "leadSpendEmail" ).valid();
+				  })
 				
 				$( "#email-input-id" ).leadSpendEmail( { debug: true,
 													     timeout: 15 } );
