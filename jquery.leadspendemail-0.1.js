@@ -132,7 +132,7 @@
 				}
 				
 				$( this.resultElement ).val( value );
-
+				console.log("CHANGE EVENT SHOULD BE TRIGGERED");
 				$( this.resultElement ).trigger( "change" );
 			}
 		};
