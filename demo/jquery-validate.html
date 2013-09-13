@@ -32,10 +32,16 @@
 				var defaultOnKeyup = jQuery.validator.defaults.onkeyup;
 				
 				jQuery.validator.setDefaults( {
-					onkeyup: function( element ){
+					onkeyup: function( element, event ){
+						var code = (e.keyCode ? e.keyCode : e.which);
+						if(code == 13) { //Enter keycode
+							return true;
+						}
+						
 						if ( !$( element ).hasClass( 'leadSpendEmail' ) ) { // $(element).attr('name') != $(".leadSpendEmail").attr("name")) 
 							defaultOnKeyup.apply( this, arguments );
 						}
+						return true;
 					} } );
 			
 				jQuery.validator.addMethod(
