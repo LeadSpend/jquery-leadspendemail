@@ -153,28 +153,21 @@
 		
 		// Binds the submit-delaying function to form submit
 		this._bindDelaySubmit = function(){
-			 console.log( "bindSubmit called" );
 			 console.log( $( this.form ) );
 			 $( this.form ).on( "submit", $.proxy( this._submitHandler, this ) );
 		}
 		
+		// Function actually bound to the submit event (via $.proxy)
 		this._submitHandler = function(){
-				console.log( "submitHandler called" );
-				console.log( "setting submitPressed to true" )
 				this.submitPressed = true;
-				console.log( "submit blocked" );
 				return false;   // block form submit
 		}
 		
 		this._handleDelaySubmit = function(){
-			console.log( "handleSubmit entered" );
-			console.log( "this.submitPressed = " + this.submitPressed.toString() );
 			if ( this.submitPressed ){
-				console.log( "handleSubmit executing" );
 				this.submitPressed = false;
-				$( this.form ).off( "submit", $.proxy( this._submitHandler, this ) );
-				console.log( "submitting form..." );
-				$( this.form ).children( "[type='submit']" ).click();
+				$( this.form ).off( "submit", $.proxy( this._submitHandler, this ) );	// unbind the specific function from the submit event
+				$( this.form ).trigger( "submit" );//children( "[type='submit']" ).click();
 			}
 		};
 		
