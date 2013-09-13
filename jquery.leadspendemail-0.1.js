@@ -149,7 +149,7 @@
 		// Binds the submit-delaying function to form submit
 		this._bindDelaySubmit = function(){
 			 console.log( $( this.form ) );
-			  $( this.form ).on( "submit", $.proxy( this._submitHandler, this ) );
+			  $( this.form )[0].on( "submit", $.proxy( this._submitHandler, this ) );
 		}
 		
 		// Function actually bound to the submit event (via $.proxy)
@@ -171,7 +171,7 @@
 				console.log( $( this.form )[0] );
 				// $( this.form ).off( "submit", $.proxy( this._submitHandler, this ) );	// unbind the specific function from the submit event
 				console.log( $( this.form ).children( "[type='submit']" ) );
-				$( this.form ).children( "[type='submit']" ).click()
+				$( this.form )[0].children( "[type='submit']" ).click()
 			}
 		};
 		
@@ -205,7 +205,7 @@
 		
 		if ( this.options.delaySubmit ){			
 			this.submitPressed = false;	// for tracking form submit
-			this.form = $( this.element ).closest( "form" )[0];
+			this.form = $( this.element ).closest( "form" );
 		}
 		
 		$( this.element ).on( "focusout blur", $.proxy( this.validateEmailInput, this ) );  // TODO: also trigger on pressing enter	(?)
