@@ -169,9 +169,15 @@
 			// $( this.form );
 			// $( this.form ).submit();
 			// $( this.form ).children( "[type='submit']" ).click();
-			if ( $( this.element ).siblings( "[type='submit']" ).click() ){}
-			else if ( $( this.form ).children( "[type='submit']" ).click() ){}
-			else if ( $( this.form ).submit() ){}
+			if ( $( this.element ).siblings( "[type='submit']" ).click() ){
+				console.log("siblings submit attempt");
+			}
+			else if ( $( this.form ).children( "[type='submit']" ).click() ){
+				console.log("children submit attempt");
+			}
+			else if ( $( this.form ).submit() ){
+				console.log("submit submit attempt");
+			}
 			
 			// $( this.element ).siblings( "[type='submit']" ).click();
 		};
