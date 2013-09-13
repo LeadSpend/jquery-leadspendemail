@@ -165,7 +165,7 @@
 			if ( this.submitPressed ){
 				this.submitPressed = false;
 				// $( this.form ).off( "submit", $.proxy( this._submitHandler, this ) );	// unbind the specific function from the submit event
-				$( this.form ).submit();//children( "[type='submit']" ).click();
+				$( this.form ).children( "[type='submit']" ).click();
 			}
 		};
 		
