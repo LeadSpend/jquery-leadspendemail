@@ -89,9 +89,13 @@
 													     timeout: 15,
 														 delaySubmit: true,
 														 resultCallback: function( element, resultElement ){
-															console.log( "executing resultCallback function" )
+															console.log( "executing resultCallback function" );
+															console.log(element);
+															console.log($(element));
 															$( element ).valid();
 															$( element ).closest( "form" ).validate();
+															console.log(element);
+															console.log($(element));
 														 } } );
 				$( "#demo-form-id" ).validate();
 				
