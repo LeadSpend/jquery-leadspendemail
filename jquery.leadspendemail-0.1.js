@@ -185,7 +185,7 @@
 			} else {
 				this._setResultValue( "undeliverable" );
 			}
-			return true;  // TODO: necessary?
+			// return true;  // TODO: necessary?
 		};
 		
         this.init();
