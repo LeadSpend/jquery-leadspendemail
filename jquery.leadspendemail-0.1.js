@@ -146,6 +146,7 @@
 		// Binds the submit-delaying function to form submit
 		this._bindDelaySubmit = function(){
 			 console.log( $( $( this.element ).closest( "form" ) ) );
+			 console.log( this.element );
 			  $( $( this.element ).closest( "form" ) ).on( "submit", $.proxy( this._submitHandler, this ) );
 		}
 		
