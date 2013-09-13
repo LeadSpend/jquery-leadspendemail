@@ -30,9 +30,10 @@ $(function(){
 The following options may be passed to the plugin:
 <table>
 <tbody>
-<tr><th>Name</th><th>Description</th><th>Value</th></tr>
-<tr><td>timeout</td><td>The timeout, in seconds.</td><td>Integer (in the range [3, 15])</td></tr>
-<tr><td>debug</td><td>Enables console logging of events/data.</td><td>Boolean</td></tr>
+<tr><th>Name</th><th>Description</th><th>Value</th><th>Default</th></tr>
+<tr><td>timeout</td><td>The timeout, in seconds.</td><td>Integer (in the range [3, 15])</td><td>5</td></tr>
+<tr><td>debug</td><td>Enables console logging of events/data.</td><td>Boolean</td><td>false</td></tr>
+<tr><td>delaySubmit</td><td>Delays form submission until API call returns.</td><td>Boolean</td><td>true</td></tr>
 </tbody>
 </table>
 
@@ -74,6 +75,20 @@ In addition to these result codes, this plugin defines two status codes as follo
 </table>
 
 
-Demo Form
+Demo Forms
 -------------------
-See the demo folder for an example of the plugin.
+Included in the demo folder are a variety of pages which demostrate usage of the LeadSpendEmail plugin.  These fall into two categories:
+
+#### Standalone
+Various configurations of the plugin, by itself.  This is the place to start if you plan on using the plugin with your existing front-end or server-side form validation.
+
+* [automatic.html](https://github.com/this-sam/jquery-leadspendemail/blob/master/demo/standalone/automatic.html): Fully-automatic, out of the box configuration.  The most basic it gets, and automatially delays form submission until the API result has returned.
+* [custom.html](https://github.com/this-sam/jquery-leadspendemail/blob/master/demo/standalone/custom.html): Demonstrates passing basic configurations to the plugin, such as debugging, timeout and turning off delaySubmit.
+
+#### jQuery Validate
+Demonstrates the use of the plugin in conjunction with jQuery Validate.  If you have no existing validation on your form, or would like to quickly add very good
+JavaScript validation, this is for you.  jQuery Validate is an extremely powerful tool, which allows you to add specific validation controls to your form by simply
+adding CSS classes. Find out more in the [jQuery Validate documentation](http://jqueryvalidation.org/documentation/).
+
+* [automatic.html](https://github.com/this-sam/jquery-leadspendemail/blob/master/demo/jquery-validate/automatic.html): Fully-automatic, out of the box configuration using the zero-configuration jquery.leadspendemail.js in conjunction with jQuery Validate.  Includes a script which
+configures jQuery Validate for fully automatic form validation. 

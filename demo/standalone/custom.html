@@ -12,7 +12,8 @@
 			$( document ).ready( function(){
 				$( "#email-input-id-1" ).leadSpendEmail({
 										debug: true,
-										timeout: 3
+										timeout: 3,
+										delaySubmit: false
 									});
 				
 				$( "#email-input-id-2" ).leadSpendEmail({
@@ -24,12 +25,12 @@
 	</head>
 	<body>
 		<form>
-			<label>Email Address (Short timeout):</label>
+			<label>Email Address (Short timeout, don't delay submit):</label>
 			<input id="email-input-id-1" class="" name="email-input-name-1" value="">
 			<input type="submit" name="submit-1">
 		</form>
 		<form>
-			<label>Email Address (Long timeout):</label>
+			<label>Email Address (Long timeout, delay submit):</label>
 			<input id="email-input-id-2" class="" name="email-input-name-2" value="">
 			<input type="submit" name="submit-2">
 		</form>
