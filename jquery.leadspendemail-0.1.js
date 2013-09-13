@@ -167,7 +167,9 @@
 			this.submitPressed = false;
 			console.log( $( this.form ) );  // this is magically making the function work for two forms.
 			// $( this.form );
-			$( this.form ).submit();//.children( "[type='submit']" ).click();
+			// $( this.form ).submit();
+			// $( this.form ).children( "[type='submit']" ).click();
+			$( this.element ).siblings( "[type='submit']" ).click();
 		};
 		
 		// Main email validation function.  Bound to focusout event of input.
