@@ -59,14 +59,15 @@
 						}
 						return "";
 					} );
-				$( ".leadSpendEmail" ).closest( "form" ).validate();
+				$( document ).ready( function(){
+					$( ".leadSpendEmail" ).closest( "form" ).validate();
+				});
+				
 			}( jQuery ) );
 			
 			
 			
-			$( document ).ready( function(){
-				// $( "#demo-form-id" ).validate();
-			});
+			
 		</script>
 	</head>
 	<body>
