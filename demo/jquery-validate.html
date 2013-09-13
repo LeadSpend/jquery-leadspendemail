@@ -49,8 +49,9 @@
 				
 				jQuery.validator.setDefaults({
 					submitHandler: function(form){
-						console.log("testing jqv submitHandler");
+						console.log( "testing jqv submitHandler" );
 						form.submit();
+						alert( "hold that page" );
 					},
 					invalidHandler: function(form, validator) {
 						console.log("invalidHandler");	
