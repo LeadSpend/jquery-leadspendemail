@@ -1,8 +1,8 @@
-// Set jQuery Validate to automatically ignore leadSpendEmail fields during onkeyup validation
 (function( $ ){
 	jQuery.validator.addMethod(
 		"leadSpendEmail",
-		function( emailValue, element ) {	// actual validation function.  Return true if valid.
+		// Set jQuery Validate for correct validity depending on LeadSpend result
+		function( emailValue, element ) {	
 			result = $( element ).siblings( ".leadSpendEmail-result" ).val();
 			switch ( result ){
 				case "illegitimate":
@@ -19,6 +19,7 @@
 			}
 			return true; // always return a value, even if code is crazy
 		},
+		// Set jQuery Validate messages for various validity results
 		function( value, field ){	// function to determine error message
 			result = $( field ).siblings( ".leadSpendEmail-result" ).val();
 			switch ( result ){
@@ -32,6 +33,8 @@
 			}
 			return "";
 		} );
+	
+	// automatically initialize this on any forms with leadSpendEmail.  Defaults can still be updated after this.
 	$( document ).ready( function(){
 		$( ".leadSpendEmail" ).closest( "form" ).validate();
 	});
