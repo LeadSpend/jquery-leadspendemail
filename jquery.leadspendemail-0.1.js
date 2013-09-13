@@ -155,14 +155,17 @@
 		// Function actually bound to the submit event (via $.proxy)
 		this._submitHandler = function( event ){
 				this.submitPressed = true;
-				
+				console.log( "submitHandler called" )
 				if ( this.resultPending ){
+					console.log( "submitHandler preventing submit default" )
 					event.preventDefault();
 				}
 		}
 		
 		this._handleDelaySubmit = function(){
+			console.log( "_handleDelaySubmit called" )
 			if ( this.submitPressed ){
+				console.log( "_handleDelaySubmit submitting form" )
 				this.submitPressed = false;
 				// $( this.form ).off( "submit", $.proxy( this._submitHandler, this ) );	// unbind the specific function from the submit event
 				$( this.form ).children( "[type='submit']" ).click();
