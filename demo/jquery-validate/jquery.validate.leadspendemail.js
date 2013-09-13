@@ -1,4 +1,4 @@
-(function( $ ){
+( function( $ ){
 	jQuery.validator.addMethod(
 		"leadSpendEmail",
 		// Set jQuery Validate for correct validity depending on LeadSpend result

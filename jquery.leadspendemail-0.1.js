@@ -15,7 +15,7 @@
 	defaults = {
 		timeout: 5,
 		debug: false,
-		delaySubmit: true, // note: true expects a well-formed form! (i.e. email input inside form element)
+		delaySubmit: true, // note: true expects a well-formed form! (i.e. email input and submit button inside form element)
 		resultCallback: null
 	};
 	
@@ -27,7 +27,7 @@
 		this._defaults = defaults;
 		this._name = pluginName;
 		
-		this.apiUrl = "https://primary.api.leadspend.com/v2/validity/"
+		this.apiUrl = "https://primary.api.leadspend.com/v2/validity/";
         
 		// Actual jsonp call to the LeadSpend API
 		this._jsonpValidateEmail = function( emailAddress ) {
@@ -36,8 +36,7 @@
 				.fail( $.proxy( this._jsonpValidateEmailFail, this ) );
 		};
 		
-		// Called on completion of jsonp email validation call
-		// (to be called using $.proxy for proper context)
+		// Called on completion of jsonp email validation call (to be called using $.proxy for proper context)
 		this._jsonpValidateEmailDone = function( data, textStatus, jqXHR ){
 			if ( this.options.debug ){
 				console.log( "LeadSpend result: ");
@@ -47,8 +46,7 @@
 			this._setResultValue( data.result );
 		};
 		
-		// Called on fail of jsonp email validation call
-		// (to be called using $.proxy for proper context)
+		// Called on fail of jsonp email validation call (to be called using $.proxy for proper context)
 		this._jsonpValidateEmailFail = function( jqXHR, textStatus, errorThrown ){
 			this._setResultPending( false );
 			
@@ -108,7 +106,7 @@
 			this.resultAddress = emailAddress;
 		};
 		
-		// sets the value in the resultElement.  Eventually, provide a flag which sets these results to actionable vs. more detailed
+		// Sets the value in the resultElement.
 		this._setResultValue = function( value ){
 			// Only update value and trigger the change event if new value is different
 			if ( $( this.resultElement ).val() != value ){
@@ -159,6 +157,7 @@
 				}
 		}
 		
+		// Actually submits the form, and turns off the submitPressed flag
 		this._handleDelaySubmit = function(){
 			if (this.options.debug) console.log( "_handleDelaySubmit submitting form" );
 			this.submitPressed = false;
@@ -181,7 +180,6 @@
 			} else {
 				this._setResultValue( "undeliverable" );
 			}
-			// return true;  // TODO: necessary
 		};
 		
         this.init();
@@ -191,7 +189,7 @@
 	LeadSpendEmail.prototype.init = function () {
 		// Modify form and initialize option-based variables
 		$( this.element ).addClass( "leadSpendEmail" );
-		this._createResultElement();  	// create the hidden element where result codes will be stored
+		this._createResultElement();
 		
 		if ( this.options.delaySubmit ){			
 			this.submitPressed = false;	// for tracking form submit
@@ -202,10 +200,10 @@
 		$( this.element ).focusout( $.proxy( this.validateEmailInput, this ) )	// binding focusout event
 						 .keydown( 	$.proxy( function( event ){					// binding keydown event, specifically enter press
 							code = (event.keyCode ? event.keyCode : event.which);
-							if( code == 13 ) {
+							if( code == 13 ) {	// enter key
 								this.validateEmailInput();
 							}
-						 }, this ) );  // TODO: also trigger on pressing enter	(?)
+						 }, this ) );
 		return this; 
 	};
 	
