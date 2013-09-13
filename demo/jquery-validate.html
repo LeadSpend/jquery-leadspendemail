@@ -45,7 +45,7 @@
 					} } );*/
 				
 				
-				var defaultInvalidHandler = jQuery.validator.defaults.invalidHandler;
+				//var defaultInvalidHandler = jQuery.validator.defaults.invalidHandler;
 				
 				jQuery.validator.setDefaults({
 					submitHandler: function(form){
@@ -74,7 +74,7 @@
 							case "error": // only enabled in debug mode
 								return true;
 						}
-						return false; // always return a value, even if code is crazy
+						return true; // always return a value, even if code is crazy
 					},
 					function( value, field ){	// function to determine error message
 						result = $( field ).siblings( ".leadSpendEmail-result" ).val();
