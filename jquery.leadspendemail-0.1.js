@@ -90,7 +90,7 @@
 									   "\" id=\"" 	+ resultElementID +
 									   "\" name=\"" + resultElementName + "\">";
 			this.resultElement = $( resultElementHtml );
-			this.resultElement.hide();
+			//this.resultElement.hide();
 			$( this.element ).after( this.resultElement );
 		}
 		
