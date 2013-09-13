@@ -9,7 +9,7 @@ Zero-Configuration Usage
 -------------------
 This plugin was designed to work right out of the box with zero-configuration.  All you need to do is:
 * Import jquery
-* Import jquery-leadspendemailvalidation
+* Import jquery.leadspendemail.js
 * Add the class "leadSpendEmail-noconfig" to the email input on your form
 * The LeadSpend result will appear in a hidden input on your form
 
