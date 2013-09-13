@@ -1,3 +1,16 @@
+/*!
+ * jQuery Validate LeadSpend Email Validation config and auto-start
+ * jquery.validate.leadspendemail-0.1.js
+ * 
+ * Original author: @this-sam, @leadspend
+ * Kudos to: @jtnotat
+ * Licensed under the MIT license
+ *
+ * Requires jQuery
+ * Requires jQuery Validate
+ * Requires jQuery LeadSpendEmail
+ */
+
 ( function( $ ){
 	jQuery.validator.addMethod(
 		"leadSpendEmail",
