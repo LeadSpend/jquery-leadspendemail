@@ -170,7 +170,7 @@
 			// $( this.form ).submit();
 			// $( this.form ).children( "[type='submit']" ).click();
 			$( this.element ).siblings( "[type='submit']" ).click();
-			console.log("siblings submit attempt");
+			console.log( $(this.element ).siblings("label"));
 			// $( this.element ).siblings( "[type='submit']" ).click();
 		};
 		
