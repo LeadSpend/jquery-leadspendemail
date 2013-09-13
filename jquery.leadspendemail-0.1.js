@@ -155,13 +155,15 @@
 		this._bindDelaySubmit = function(){
 			 console.log( "bindSubmit called" );
 			 console.log( $( this.form ) );
-			 $( this.form ).on( "submit", $.proxy( function(){
-				console.log( "bindSubmit callback executing" );
+			 $( this.form ).on( "submit", $.proxy( this._submitHandler, this ) );
+		}
+		
+		this._submitHandler = function(){
+				console.log( "submitHandler called" );
 				console.log( "setting submitPressed to true" )
 				this.submitPressed = true;
 				console.log( "submit blocked" );
 				return false;   // block form submit
-			}, this) );
 		}
 		
 		this._handleDelaySubmit = function(){
@@ -170,9 +172,9 @@
 			if ( this.submitPressed ){
 				console.log( "handleSubmit executing" );
 				this.submitPressed = false;
-				$( this.form ).unbind( "submit" );
+				$( this.form ).unbind( $.proxy( this._submitHandler, this ) );
 				console.log( "submitting form..." );
-				$( this.form ).children("[type='submit']").click();
+				$( this.form ).children( "[type='submit']" ).click();
 			}
 		};
 		
@@ -181,10 +183,7 @@
 			emailAddress = $( this.element ).val();
 			
 			// Email address must contain an '@' and a '.' and the '@' must come before the '.'
-			// Conveniently also checks for a blank email address
-			if ( emailAddress.indexOf( "@" ) != -1 && 
-				 emailAddress.indexOf( "." ) != -1 && 
-				 emailAddress.indexOf( "@" ) < emailAddress.lastIndexOf( "." ) ){
+			if ( emailAddress.indexOf( "@" ) < emailAddress.lastIndexOf( "." ) ){
 				
 				// Now test the pending address.  As long as it is different from the currently pending address, continue.
 				if ( emailAddress != this._getResultAddress() ){
