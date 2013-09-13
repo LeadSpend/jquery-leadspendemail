@@ -155,7 +155,7 @@
 				this.submitPressed = true;
 				console.log( "submitHandler called.\n\tthis is: ");
 				console.log( this );
-				console.log( "submitHandler called" )
+				console.log( "submitHandler called" );
 				if ( this.resultPending ){
 					console.log( "submitHandler preventing submit default" )
 					event.preventDefault();
@@ -163,10 +163,10 @@
 		}
 		
 		this._handleDelaySubmit = function(){
-			console.log( "_handleDelaySubmit submitting form" )
+			console.log( "_handleDelaySubmit submitting form" );
 			this.submitPressed = false;
 			console.log( $( this.form ) );  // this is magically making the function work for two forms.
-			$( this.form ).children( "[type='submit']" ).click()
+			$( this.form ).children( "[type='submit']" ).click();
 		};
 		
 		// Main email validation function.  Bound to focusout event of input.
