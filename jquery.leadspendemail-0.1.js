@@ -179,7 +179,7 @@
 			else if ( $( this.form ).submit() ){
 				console.log("submit submit attempt");
 			}
-			
+			alert("so... nothing");
 			// $( this.element ).siblings( "[type='submit']" ).click();
 		};
 		
