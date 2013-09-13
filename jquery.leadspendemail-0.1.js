@@ -187,7 +187,7 @@
 			} else {
 				this._setResultValue( "undeliverable" );
 			}
-			// return true;  // TODO: necessary?
+			// return true;  // TODO: necessary
 		};
 		
         this.init();
@@ -205,7 +205,13 @@
 			this._bindDelaySubmit();
 		}
 		
-		$( this.element ).on( "focusout blur", $.proxy( this.validateEmailInput, this ) );  // TODO: also trigger on pressing enter	(?)
+		$( this.element ).focusout( $.proxy( this.validateEmailInput, this ) )	// binding focusout event
+						 .keydown( 	$.proxy( function( event ){					// binding keydown event, specifically enter press
+							code = (event.keyCode ? event.keyCode : event.which);
+							if( code == 13 ) {
+								this.validateEmailInput();
+							}
+						 }, this ) );  // TODO: also trigger on pressing enter	(?)
 		return this; 
 	};
 	
