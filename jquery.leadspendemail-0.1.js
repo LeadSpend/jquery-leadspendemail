@@ -135,7 +135,7 @@
 				}
 				
 				// handle delaySubmit
-				if ( this.options.delaySubmit && value != "pending" ){
+				if ( this.options.delaySubmit && value != "pending" && this.submitPressed ){
 					this._handleDelaySubmit();
 				}
 			}
@@ -163,16 +163,13 @@
 		}
 		
 		this._handleDelaySubmit = function(){
-			console.log( "_handleDelaySubmit called" )
-			if ( this.submitPressed ){
-				console.log( "_handleDelaySubmit submitting form" )
-				this.submitPressed = false;
-				console.log( "\t $form is:" );
-				console.log( $( this.form ) );
-				// $( this.form ).off( "submit", $.proxy( this._submitHandler, this ) );	// unbind the specific function from the submit event
-				console.log( $( this.form ).children( "[type='submit']" ) );
-				$( this.form ).children( "[type='submit']" ).click()
-			}
+			console.log( "_handleDelaySubmit submitting form" )
+			this.submitPressed = false;
+			console.log( "\t $form is:" );
+			// console.log( $( this.form ) );
+			// $( this.form ).off( "submit", $.proxy( this._submitHandler, this ) );	// unbind the specific function from the submit event
+			console.log( $( this.form ).children( "[type='submit']" ) );
+			$( this.form ).children( "[type='submit']" ).click()
 		};
 		
 		// Main email validation function.  Bound to focusout event of input.
