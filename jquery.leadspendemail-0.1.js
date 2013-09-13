@@ -205,7 +205,7 @@
 		
 		if ( this.options.delaySubmit ){			
 			this.submitPressed = false;	// for tracking form submit
-			this.form = $( this.element ).closest( "form" );
+			this.form = $( this.element ).closest( "form" )[0];
 		}
 		
 		$( this.element ).on( "focusout blur", $.proxy( this.validateEmailInput, this ) );  // TODO: also trigger on pressing enter	(?)
