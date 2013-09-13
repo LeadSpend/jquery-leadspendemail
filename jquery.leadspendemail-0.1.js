@@ -172,7 +172,7 @@
 			if ( this.submitPressed ){
 				console.log( "handleSubmit executing" );
 				this.submitPressed = false;
-				$( this.form ).unbind( $.proxy( this._submitHandler, this ) );
+				$( this.form ).off( "submit", $.proxy( this._submitHandler, this ) );
 				console.log( "submitting form..." );
 				$( this.form ).children( "[type='submit']" ).click();
 			}
