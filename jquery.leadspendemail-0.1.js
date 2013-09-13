@@ -171,7 +171,7 @@
 			// $( this.form ).children( "[type='submit']" ).click();
 			if ( $( this.element ).siblings( "[type='submit']" ).click() ){}
 			else if ( $( this.form ).children( "[type='submit']" ).click() ){}
-			else if ( $( this.form ).submit() ){}
+			//else if ( $( this.form ).submit() ){}
 			
 			// $( this.element ).siblings( "[type='submit']" ).click();
 		};
