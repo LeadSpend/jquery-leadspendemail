@@ -155,9 +155,9 @@
 				this.submitPressed = true;
 				// console.log( "submitHandler called.\n\tthis is: ");
 				// console.log( this );
-				console.log( "submitHandler called" );
+				console.log( "_submitHandler called" );
 				if ( this.resultPending ){
-					console.log( "submitHandler preventing submit default" )
+					console.log( "_submitHandler preventing submit default" )
 					event.preventDefault();
 				}
 		}
@@ -165,7 +165,7 @@
 		this._handleDelaySubmit = function(){
 			console.log( "_handleDelaySubmit submitting form" );
 			this.submitPressed = false;
-			console.log( $( this.form ) );  // this is magically making the function work for two forms.
+			//console.log( $( this.form ) );  // this is magically making the function work for two forms.
 			// $( this.form );
 			// $( this.form ).submit();
 			// $( this.form ).children( "[type='submit']" ).click();
