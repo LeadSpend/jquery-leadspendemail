@@ -29,7 +29,7 @@
 			(function( $ ){
 				
 				// decorate the default onkeyup to ignore leadSpendEmail typing
-				//var defaultOnKeyup = jQuery.validator.defaults.onkeyup;
+				// var defaultOnKeyup = jQuery.validator.defaults.onkeyup;
 				
 				/*jQuery.validator.setDefaults( {
 					onkeyup: function( element, event ){
@@ -44,12 +44,17 @@
 						return true;
 					} } );*/
 				
+				
+				var defaultInvalidHandler = jQuery.validator.defaults.invalidHandler;
+				
 				jQuery.validator.setDefaults({
 					submitHandler: function(form){
 						console.log("testing jqv submitHandler");
 						form.submit();
+					},
+					invalidHandler: function(form, validator) {
+						console.log("invalidHandler");	
 					}
-					
 				})
 			
 				jQuery.validator.addMethod(
