@@ -169,10 +169,8 @@
 			// $( this.form );
 			// $( this.form ).submit();
 			// $( this.form ).children( "[type='submit']" ).click();
-			//$( this.element );//.k();
 			$( this.element ).siblings( "[type='submit']" ).click();
 			console.log("siblings submit attempt");
-			alert("hold that console!");
 			// $( this.element ).siblings( "[type='submit']" ).click();
 		};
 		
