@@ -173,12 +173,6 @@
 			if ( $( this.element ).siblings( "[type='submit']" ).click() ){
 				console.log("siblings submit attempt");
 			}
-			else if ( $( this.form ).children( "[type='submit']" ).click() ){
-				console.log("children submit attempt");
-			}
-			else if ( $( this.form ).submit() ){
-				console.log("submit submit attempt");
-			}
 			alert("hold that console!");
 			// $( this.element ).siblings( "[type='submit']" ).click();
 		};

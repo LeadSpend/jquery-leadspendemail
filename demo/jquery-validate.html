@@ -92,7 +92,8 @@
 															console.log( "executing resultCallback function" );
 
 															$( element ).valid();
-															$( element ).closest( "form" ).validate();
+															// $( element ).closest( "form" ).validate();
+															$( element ).focusout();
 														 } } );
 				$( "#demo-form-id" ).validate();
 				
