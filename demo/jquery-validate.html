@@ -91,7 +91,7 @@
 														 resultCallback: function( element, resultElement ){
 															console.log( "executing resultCallback function" )
 															$( element ).valid();
-															$( element ).parent( "form" ).validate();
+															$( element ).closest( "form" ).validate();
 														 } } );
 				$( "#demo-form-id" ).validate();
 				
