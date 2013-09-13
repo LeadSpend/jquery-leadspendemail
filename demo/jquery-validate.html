@@ -64,10 +64,6 @@
 			
 			
 			$( document ).ready( function(){
-				// set the resultCallback
-				$( "#email-input-id" ).leadSpendEmail( { resultCallback: function( element, resultElement ){
-															// $( element ).valid();
-														 } } );
 				$( "#demo-form-id" ).validate();
 			});
 		</script>
@@ -80,7 +76,7 @@
 			</p>
 			<p>
 				<label>Email Address:</label>
-				<input id="email-input-id" class="required" name="email-input-name" value="">
+				<input id="email-input-id" class="required leadSpendEmail-noconfig" name="email-input-name" value="">
 			</p>
 			<input type="submit" name="submit">
 		</form>
