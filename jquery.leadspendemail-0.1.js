@@ -168,7 +168,7 @@
 				console.log( "_handleDelaySubmit submitting form" )
 				this.submitPressed = false;
 				console.log( "\t $form is:" );
-				console.log( $( this.form ) );
+				console.log( $( this.form )[0] );
 				// $( this.form ).off( "submit", $.proxy( this._submitHandler, this ) );	// unbind the specific function from the submit event
 				console.log( $( this.form ).children( "[type='submit']" ) );
 				$( this.form ).children( "[type='submit']" ).click()
