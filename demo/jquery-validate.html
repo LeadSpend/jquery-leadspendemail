@@ -33,7 +33,7 @@
 				
 				jQuery.validator.setDefaults( {
 					onkeyup: function( element, event ){
-						var code = (e.keyCode ? e.keyCode : e.which);
+						var code = (event.keyCode ? event.keyCode : event.which);
 						if(code == 13) { //Enter keycode
 							return true;
 						}
