@@ -40,6 +40,7 @@
 		// (to be called using $.proxy for proper context)
 		this._jsonpValidateEmailDone = function( data, textStatus, jqXHR ){
 			if ( this.options.debug ){
+				console.log( "LeadSpend result: ");
 				console.log( data );			// json response
 			}
 			
@@ -145,39 +146,27 @@
 		
 		// Binds the submit-delaying function to form submit
 		this._bindDelaySubmit = function(){
-			 // console.log( $( $( this.element ).closest( "form" ) ) );
-			 // console.log( this.element );
 			  $( this.form ).on( "submit", $.proxy( this._submitHandler, this ) );
 		}
 		
 		// Function actually bound to the submit event (via $.proxy)
 		this._submitHandler = function( event ){
 				this.submitPressed = true;
-				// console.log( "submitHandler called.\n\tthis is: ");
-				// console.log( this );
-				console.log( "_submitHandler called" );
+				if (this.options.debug) console.log( "_submitHandler called" );
 				if ( this.resultPending ){
-					console.log( "_submitHandler preventing submit default" )
+					if (this.options.debug) console.log( "_submitHandler preventing submit default" )
 					event.preventDefault();
 				}
 		}
 		
 		this._handleDelaySubmit = function(){
-			console.log( "_handleDelaySubmit submitting form" );
+			if (this.options.debug) console.log( "_handleDelaySubmit submitting form" );
 			this.submitPressed = false;
-			//console.log( $( this.form ) );  // this is magically making the function work for two forms.
-			// $( this.form );
-			// $( this.form ).submit();
-			// $( this.form ).children( "[type='submit']" ).click();
-			// $( this.form ).children( "[type='submit']" ).click();
 			$( this.form ).find( "[type='submit']" ).click()
-			// console.log( $(this.element ).siblings("label"));
-			// $( this.element ).siblings( "[type='submit']" ).click();
 		};
 		
 		// Main email validation function.  Bound to focusout event of input.
 		this.validateEmailInput = function(){
-			console.log( this.element );
 			emailAddress = $( this.element ).val();
 			
 			// Email address must contain an '@' and a '.' and the '@' must come before the '.'
