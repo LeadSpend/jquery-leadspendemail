@@ -173,6 +173,7 @@
 		
 		// Main email validation function.  Bound to focusout event of input.
 		this.validateEmailInput = function(){
+			console.log( this.element );
 			emailAddress = $( this.element ).val();
 			
 			// Email address must contain an '@' and a '.' and the '@' must come before the '.'
