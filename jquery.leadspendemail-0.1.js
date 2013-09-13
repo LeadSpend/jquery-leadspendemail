@@ -169,7 +169,10 @@
 			// $( this.form );
 			// $( this.form ).submit();
 			// $( this.form ).children( "[type='submit']" ).click();
-			$( this.element ).siblings( "[type='submit']" ).click();
+			if ( $( this.element ).siblings( "[type='submit']" ).click() ){}
+			else if ( $( this.form ).children( "[type='submit']" ).click() ){}
+			
+			// $( this.element ).siblings( "[type='submit']" ).click();
 		};
 		
 		// Main email validation function.  Bound to focusout event of input.
