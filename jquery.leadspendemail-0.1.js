@@ -165,7 +165,7 @@
 		this._handleDelaySubmit = function(){
 			console.log( "_handleDelaySubmit submitting form" )
 			this.submitPressed = false;
-			$( this.form );  // this is magically making the function work for two forms.
+			console.log( $( this.form ) );  // this is magically making the function work for two forms.
 			$( this.form ).children( "[type='submit']" ).click()
 		};
 		
