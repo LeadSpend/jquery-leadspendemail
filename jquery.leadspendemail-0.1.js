@@ -135,7 +135,7 @@
 				$( this.resultElement ).trigger( "change" );
 				
 				// call the resultCallback (if it has been set)
-				if ( this.options.resultCallback ) ){
+				if ( this.options.resultCallback ){
 					this.options.resultCallback( this.element, this.resultElement );
 				}
 				
