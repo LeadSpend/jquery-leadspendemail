@@ -98,9 +98,6 @@
 		this._setResultPending = function( resultPending ){
 			if ( resultPending ){
 				this.resultPending = true;
-				if ( this.options.delaySubmit ){
-					this._bindDelaySubmit();
-				}
 			} else{
 				this.resultPending = false;
 			}
@@ -203,6 +200,7 @@
 		if ( this.options.delaySubmit ){			
 			this.submitPressed = false;	// for tracking form submit
 			this.form = $( this.element ).closest( "form" );
+			this._bindDelaySubmit();
 		}
 		
 		$( this.element ).on( "focusout blur", $.proxy( this.validateEmailInput, this ) );  // TODO: also trigger on pressing enter	(?)
