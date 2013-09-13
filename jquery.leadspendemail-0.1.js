@@ -15,7 +15,7 @@
 	defaults = {
 		timeout: 5,
 		debug: false,
-		delaySubmit: false, // note: true expects a well-formed form! (i.e. email input inside form element)
+		delaySubmit: true, // note: true expects a well-formed form! (i.e. email input inside form element)
 		resultCallback: null
 	};
 	

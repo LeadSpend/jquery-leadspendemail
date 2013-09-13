@@ -27,37 +27,6 @@
 		<script type="text/javascript">
 			// Set jQuery Validate to automatically ignore leadSpendEmail fields during onkeyup validation
 			(function( $ ){
-				
-				// decorate the default onkeyup to ignore leadSpendEmail typing
-				// var defaultOnKeyup = jQuery.validator.defaults.onkeyup;
-				
-				/*jQuery.validator.setDefaults( {
-					onkeyup: function( element, event ){
-						var code = (event.keyCode ? event.keyCode : event.which);
-						if(code == 13) { //Enter keycode
-							return true;
-						}
-						
-						if ( !$( element ).hasClass( 'leadSpendEmail' ) ) { // $(element).attr('name') != $(".leadSpendEmail").attr("name")) 
-							defaultOnKeyup.apply( this, arguments );
-						}
-						return true;
-					} } );*/
-				
-				
-				//var defaultInvalidHandler = jQuery.validator.defaults.invalidHandler;
-				
-				jQuery.validator.setDefaults({
-					submitHandler: function(form){
-						console.log( "testing jqv submitHandler" );
-						alert( "hold that page" );
-						form.submit();
-					},
-					invalidHandler: function(form, validator) {
-						console.log("invalidHandler");	
-					}
-				})
-			
 				jQuery.validator.addMethod(
 					"leadSpendEmail",
 					function( emailValue, element ) {	// actual validation function.  Return true if valid.
@@ -90,23 +59,15 @@
 						}
 						return "";
 					} );
-			
-				// make sure the field is revalidated as soon as a result is returned
-
 			}( jQuery ) );
 			
 			
 			
 			$( document ).ready( function(){
 				// set the resultCallback
-				$( "#email-input-id" ).leadSpendEmail( { debug: true,
-													     timeout: 15,
-														 delaySubmit: true,
-														 resultCallback: function( element, resultElement ){
-															console.log( "executing resultCallback function" );
-
+				$( "#email-input-id" ).leadSpendEmail( { resultCallback: function( element, resultElement ){
 															$( element ).valid();
-															$( element ).closest( "form" ).validate();
+															// $( element ).closest( "form" ).validate();
 														 } } );
 				$( "#demo-form-id" ).validate();
 			});
