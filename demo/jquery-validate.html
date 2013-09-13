@@ -31,7 +31,7 @@
 				// decorate the default onkeyup to ignore leadSpendEmail typing
 				var defaultOnKeyup = jQuery.validator.defaults.onkeyup;
 				
-				jQuery.validator.setDefaults( {
+				/*jQuery.validator.setDefaults( {
 					onkeyup: function( element, event ){
 						var code = (event.keyCode ? event.keyCode : event.which);
 						if(code == 13) { //Enter keycode
@@ -42,7 +42,7 @@
 							defaultOnKeyup.apply( this, arguments );
 						}
 						return true;
-					} } );
+					} } );*/
 			
 				jQuery.validator.addMethod(
 					"leadSpendEmail",
