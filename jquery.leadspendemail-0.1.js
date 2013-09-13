@@ -169,8 +169,8 @@
 			// $( this.form );
 			// $( this.form ).submit();
 			// $( this.form ).children( "[type='submit']" ).click();
-			$( this.form ).children( "[type='submit']" ).click();
-			
+			// $( this.form ).children( "[type='submit']" ).click();
+			$( this.form ).find( "[type='submit']" ).click()
 			// console.log( $(this.element ).siblings("label"));
 			// $( this.element ).siblings( "[type='submit']" ).click();
 		};
