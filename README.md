@@ -33,6 +33,7 @@ The following options may be passed to the plugin:
 <tr><th>Name</th><th>Description</th><th>Value</th><th>Default</th></tr>
 <tr><td>timeout</td><td>The timeout, in seconds.</td><td>Integer (in the range [3, 15])</td><td>5</td></tr>
 <tr><td>debug</td><td>Enables console logging of events/data.</td><td>Boolean</td><td>false</td></tr>
+<tr><td>delaySubmit</td><td>Delays form submission until API call returns.</td><td>Boolean</td><td>true</td></tr>
 </tbody>
 </table>
 
