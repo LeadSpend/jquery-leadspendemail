@@ -106,11 +106,6 @@
 			}
 		};
 		
-		// Returns true if jsonp response has not been returned and false otherwise
-		this._isResultPending = function(){
-			return this.resultPending;
-		};
-		
 		this._setResultAddress = function( emailAddress ){
 			this.resultAddress = emailAddress;
 		};
@@ -154,19 +149,22 @@
 		// Binds the submit-delaying function to form submit
 		this._bindDelaySubmit = function(){
 			 console.log( $( this.form ) );
-			 $( this.form ).on( "submit", $.proxy( this._submitHandler, this ) );
+			  $( this.form ).on( "submit", $.proxy( this._submitHandler, this ) );
 		}
 		
 		// Function actually bound to the submit event (via $.proxy)
-		this._submitHandler = function(){
+		this._submitHandler = function( event ){
 				this.submitPressed = true;
-				return false;   // block form submit
+				
+				if ( this.resultPending ){
+					event.preventDefault();
+				}
 		}
 		
 		this._handleDelaySubmit = function(){
 			if ( this.submitPressed ){
 				this.submitPressed = false;
-				$( this.form ).off( "submit", $.proxy( this._submitHandler, this ) );	// unbind the specific function from the submit event
+				// $( this.form ).off( "submit", $.proxy( this._submitHandler, this ) );	// unbind the specific function from the submit event
 				$( this.form ).children( "[type='submit']" ).click();
 			}
 		};
@@ -203,7 +201,7 @@
 			this.form = $( this.element ).closest( "form" );
 		}
 		
-		$( this.element ).on( "focusout blur", $.proxy( this.validateEmailInput, this ) );  // TODO: also trigger on pressing enter	
+		$( this.element ).on( "focusout blur", $.proxy( this.validateEmailInput, this ) );  // TODO: also trigger on pressing enter	(?)
 		return this; 
 	};
 	
