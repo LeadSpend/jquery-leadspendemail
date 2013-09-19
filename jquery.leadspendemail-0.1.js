@@ -161,7 +161,7 @@
 		this._handleDelaySubmit = function(){
 			if (this.options.debug) console.log( "_handleDelaySubmit submitting form" );
 			this.submitPressed = false;
-			$( this.form ).find( "[type='submit']" ).click()
+			$( this.form ).find( "[type='submit']" ).click();
 		};
 		
 		// Main email validation function.  Bound to focusout event of input.
