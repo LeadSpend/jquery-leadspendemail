@@ -64,7 +64,7 @@ The email validation result will be stored in a hidden input as part of your for
 When a result is returned, the "change" event is triggered on the hidden result input.
 
 The easiest way to access this value in JavaScript will be to use jQuery:
-```html
+```javascript
 var result = $("#{id of your email input}-result").val();
 ```
 
