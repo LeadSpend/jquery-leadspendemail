@@ -8,11 +8,26 @@ as soon as they are typed in, and is designed to work well with your current sit
 Zero-Configuration Usage
 -------------------
 This plugin was designed to work right out of the box with zero-configuration.  All you need to do is:
-* Import jquery
-* Import jquery.leadspendemail.js
-* Add the class "leadSpendEmail-noconfig" to the email input on your form
-* The LeadSpend result will appear in a hidden input on your form
 
+Include jquery:
+
+```html
+ <script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.js"></script>
+```
+
+Import jquery-leadspendemailvalidation:
+
+```html
+ <script type="text/javascript" src="../../jquery.leadspendemail-0.1.js"></script>
+```
+
+Add the class "leadSpendEmail-noconfig" to the email input on your form:
+
+```html
+ <input id="..." class="leadSpendEmail-noconfig" name="email-input">
+```
+
+The LeadSpend result will appear in a hidden input on your form, available to use with your current form validation.
 
 Custom Usage and Options
 -------------------
@@ -29,11 +44,11 @@ $(function(){
 ### Options
 The following options may be passed to the plugin:
 <table>
+<table>
 <tbody>
-<tr><th>Name</th><th>Description</th><th>Value</th><th>Default</th></tr>
-<tr><td>timeout</td><td>The timeout, in seconds.</td><td>Integer (in the range [3, 15])</td><td>5</td></tr>
-<tr><td>debug</td><td>Enables console logging of events/data.</td><td>Boolean</td><td>false</td></tr>
-<tr><td>delaySubmit</td><td>Delays form submission until API call returns.</td><td>Boolean</td><td>true</td></tr>
+<tr><td>timeout</td><td>The timeout, in seconds.</td><td>Integer from 3 to 15</td><td>5</td></tr>
+<tr><td>debug</td><td>Enables console logging.</td><td>Boolean</td><td>false</td></tr>
+<tr><td>delaySubmit</td><td>Delays form submit until the API call returns.</td><td>Boolean</td><td>true</td></tr>
 </tbody>
 </table>
 
@@ -47,6 +62,16 @@ The email validation result will be stored in a hidden input as part of your for
 * class = "leadSpendEmail-result"
 
 When a result is returned, the "change" event is triggered on the hidden result input.
+
+The easiest way to access this value in JavaScript will be to use jQuery:
+```html
+result = $("#{id of your email input}-result").val();
+```
+
+The result will also be available server-side:
+```php
+$result = $_GET["{name of your email address input}-result"];
+```
 
 Result Codes and What They Mean
 -------------------
