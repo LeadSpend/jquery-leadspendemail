@@ -65,7 +65,7 @@ When a result is returned, the "change" event is triggered on the hidden result 
 
 The easiest way to access this value in JavaScript will be to use jQuery:
 ```html
-result = $("#{id of your email input}-result").val();
+var result = $("#{id of your email input}-result").val();
 ```
 
 The result will also be available server-side:
