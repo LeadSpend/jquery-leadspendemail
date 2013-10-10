@@ -39,8 +39,8 @@
 		// Called on completion of jsonp email validation call (to be called using $.proxy for proper context)
 		this._jsonpValidateEmailDone = function( data, textStatus, jqXHR ){
 			if ( this.options.debug ){
-				console.log( "LeadSpend result: ");
-				console.log( data );			// json response
+				console.log( "LeadSpend result: " );
+				console.log( data );
 			}
 			
 			this._setResultValue( data.result );
@@ -124,6 +124,10 @@
 				
 				// Trigger change event for external use/binding
 				$( this.resultElement ).trigger( "change" );
+
+				// Trigger focusout event for email address field 
+				$( this.element ).trigger( "focusout" );
+				// TODO: trigger other events? 
 				
 				// call the resultCallback (if it has been set)
 				if ( this.options.resultCallback ){
@@ -149,19 +153,20 @@
 		
 		// Function actually bound to the submit event (via $.proxy)
 		this._submitHandler = function( event ){
+				// TODO: If field has not been validated, and result is not pending, force validation.  
 				this.submitPressed = true;
-				if (this.options.debug) console.log( "_submitHandler called" );
+				if ( this.options.debug ) console.log( "_submitHandler called" );
 				if ( this.resultPending ){
-					if (this.options.debug) console.log( "_submitHandler preventing submit default" )
+					if ( this.options.debug ) console.log( "_submitHandler preventing submit default" )
 					event.preventDefault();
 				}
 		}
 		
 		// Actually submits the form, and turns off the submitPressed flag
 		this._handleDelaySubmit = function(){
-			if (this.options.debug) console.log( "_handleDelaySubmit submitting form" );
+			if ( this.options.debug ) console.log( "_handleDelaySubmit submitting form" );
 			this.submitPressed = false;
-			$( this.form ).find( "[type='submit']" ).click();
+			$( this.form ).find( "[type='submit']" ).click(); // TODO: Add more comprehensive form submit.
 		};
 		
 		// Main email validation function.  Bound to focusout event of input.
@@ -199,7 +204,7 @@
 		
 		$( this.element ).focusout( $.proxy( this.validateEmailInput, this ) )	// binding focusout event
 						 .keydown( 	$.proxy( function( event ){					// binding keydown event, specifically enter press
-							code = (event.keyCode ? event.keyCode : event.which);
+							code = ( event.keyCode ? event.keyCode : event.which );
 							if( code == 13 ) {	// enter key
 								this.validateEmailInput();
 							}
@@ -208,11 +213,11 @@
 	};
 	
 	// Constructor wrapper, preventing against multiple instantiations
-	$.fn[pluginName] = function ( options ){
+	$.fn[ pluginName ] = function ( options ){
 		return this.each(function () {
 			if ( !$.data( this, 'plugin_' + pluginName ) ) {
 				$.data( this, 'plugin_' + pluginName, 
-				new LeadSpendEmail( this, options ));
+				new LeadSpendEmail( this, options ) );
 			}
 		});
 	}
