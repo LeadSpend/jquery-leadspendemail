@@ -53,6 +53,7 @@
 			invalidHandler : function( event, validator ) {
 				if($(".leadSpendEmail-result").val() == "pending"){
 					alert("inside the pending if");
+					form.submit();
 				}
 			},
 		});
