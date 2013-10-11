@@ -49,6 +49,11 @@
 	
 	// automatically initialize this on any forms with leadSpendEmail.  Defaults can still be updated after this.
 	$( document ).ready( function(){
-		$( ".leadSpendEmail" ).closest( "form" ).validate();
+		$( ".leadSpendEmail" ).closest( "form" ).validate({
+			invalidHandler : function( event, validator ) {
+				alert( "hello world" );
+			}
+			
+		});
 	});
 }( jQuery ) );
