@@ -51,7 +51,9 @@
 	$( document ).ready( function(){
 		$( ".leadSpendEmail" ).closest( "form" ).validate({
 			invalidHandler : function( event, validator ) {
-				alert($(".leadSpendEmail-result").val());
+				if($(".leadSpendEmail-result").val() == "pending"){
+					alert("inside the pending if");
+				}
 			},
 		});
 	});
