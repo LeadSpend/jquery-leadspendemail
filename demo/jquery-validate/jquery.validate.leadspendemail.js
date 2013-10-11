@@ -51,7 +51,7 @@
 	$( document ).ready( function(){
 		$( ".leadSpendEmail" ).closest( "form" ).validate({
 			invalidHandler : function( event, validator ) {
-				alert($(".leadSpendEmail-result"));
+				alert($(".leadSpendEmail-result").val());
 			},
 		});
 	});
