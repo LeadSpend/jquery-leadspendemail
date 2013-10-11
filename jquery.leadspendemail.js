@@ -164,9 +164,14 @@
 		
 		// Actually submits the form, and turns off the submitPressed flag
 		this._handleDelaySubmit = function(){
-			if ( this.options.debug ) console.log( "_handleDelaySubmit submitting form" );
 			this.submitPressed = false;
-			$( this.form ).find( "[type='submit']" ).click(); // TODO: Add more comprehensive form submit.
+
+			if ( this.options.debug ) {
+				console.log( "_handleDelaySubmit submitting form" );
+				alert("About to submit form.");
+			}
+
+			$( this.form ).find( "[type='submit']" ).click(); // TODO: Add more comprehensive form submit (this is best blanket solution)
 		};
 		
 		// Main email validation function.  Bound to focusout event of input.
