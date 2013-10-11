@@ -52,6 +52,9 @@
 		$( ".leadSpendEmail" ).closest( "form" ).validate({
 			invalidHandler : function( event, validator ) {
 				alert( "hello world" );
+				if ( $(".leadSpendemail-result").val() == "pending") ){
+					$(".leadSpendemail-result").closest("form").submit();
+				}
 			}
 			
 		});
