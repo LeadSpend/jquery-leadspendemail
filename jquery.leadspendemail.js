@@ -168,7 +168,7 @@
 
 			if ( this.options.debug ) {
 				console.log( "_handleDelaySubmit submitting form" );
-				alert("About to submit form.");
+				// alert("About to submit form.");
 			}
 
 			$( this.form ).find( "[type='submit']" ).click(); // TODO: Add more comprehensive form submit (this is best blanket solution)
