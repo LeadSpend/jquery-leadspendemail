@@ -40,7 +40,7 @@
 				case "unreachable":
 				case "undeliverable":
 					return "Sorry, this email address appears to be " + result + ".";
-				
+					
 				case "pending":
 					return "Verifying email address...";
 			}
