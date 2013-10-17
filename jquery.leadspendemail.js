@@ -126,7 +126,7 @@
 				$( this.resultElement ).trigger( "change" );
 
 				// Trigger focusout event for email address field 
-				$( this.element ).trigger( "focusout" );
+				// $( this.element ).trigger( "focusout" );  // Cause of duplicate queries?
 				// TODO: trigger other events? 
 				
 				// call the resultCallback (if it has been set)
@@ -166,7 +166,7 @@
 		this._handleDelaySubmit = function(){
 			this.submitPressed = false;
 
-			if ( this.options.debug ) {
+			if ( this.options.debug ) { // Probably not the cause of duplicate queries...
 				console.log( "_handleDelaySubmit submitting form" );
 				// alert("About to submit form.");
 			}
