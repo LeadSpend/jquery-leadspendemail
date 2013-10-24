@@ -37,7 +37,7 @@ class from your email input and call the plugin directly:
 
 ```javascript
 $(function(){
-  $('{email-input-selector}').leadSpendValidate( options );
+  $('{email-input-selector}').leadSpendEmail( options );
 });
 ```
 
