@@ -1,6 +1,6 @@
 /*!
  * jQuery Validate LeadSpend Email Validation config and auto-start
- * jquery.validate.leadspendemail-0.1.js
+ * jquery.validate.leadspendemail version 0.2
  * 
  * Original author: @this-sam, @leadspend
  * Kudos to: @jtnotat
