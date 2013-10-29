@@ -58,8 +58,8 @@
 		});
 
 		$( ".leadSpendEmail-result" ).on( "change", function( event ){
-				console.log( $( event.target ).closest( ".leadSpendEmail" ) );
-				$( event.target ).closest( ".leadSpendEmail" ).valid();
+				console.log( event.target.form );
+				$( event.target.form ).child( ".leadSpendEmail" ).valid();
 			});
 	});
 }( jQuery ) );
