@@ -58,6 +58,7 @@
 		});
 
 		$( ".leadSpendEmail-result" ).on( "change", function( event ){
+				console.log("Revalidating form");
 				$( event.target.form ).validate();
 			});
 	});
