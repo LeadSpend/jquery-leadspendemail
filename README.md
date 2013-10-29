@@ -2,7 +2,12 @@ LeadSpend Email Validation jQuery Plugin
 ===================
 #### Validate your email addresses without writing a single line of code! ####
 The LeadSpend Email Validation jQuery Plugin automatically validates email addresses
-as soon as they are typed in, and is designed to work well with your current site no matter how you're validating the form.
+as soon as they are typed in, and is designed to work well with your current site no 
+matter how you're validating the form.  
+
+LeadSpend uses domain-based authentication, so this will not work on your site until 
+we have authorized your domain. [Contact us](http://www.leadspend.com/contact-us) for 
+more information.
 
 
 Zero-Configuration Usage
