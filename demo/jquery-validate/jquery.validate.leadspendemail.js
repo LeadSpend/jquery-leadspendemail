@@ -49,6 +49,11 @@
 	
 	// automatically initialize this on any forms with leadSpendEmail.  Defaults can still be updated after this.
 	$( document ).ready( function(){
+		$( ".leadSpendEmail-result" ).on( "change", function( event ){
+				console.log( event );
+				alert("leadSpendEmail-result changed!");
+			});
+
 		$( ".leadSpendEmail" ).closest( "form" ).validate({
 			invalidHandler : function( event, validator ) {
 				if($(".leadSpendEmail-result").val() == "pending"){
