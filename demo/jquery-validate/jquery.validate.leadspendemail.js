@@ -59,6 +59,7 @@
 
 		$( ".leadSpendEmail-result" ).on( "change", function( event ){
 				console.log("Revalidating form");
+				console.log($( event.target.form ).children( ".leadSpendEmail" ));
 				$( event.target.form ).children( ".leadSpendEmail" ).trigger( "change" );
 			});
 	});
