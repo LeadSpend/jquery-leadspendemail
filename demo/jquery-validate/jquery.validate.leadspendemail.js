@@ -60,7 +60,7 @@
 		$( ".leadSpendEmail-result" ).on( "change", function( event ){
 				console.log("Revalidating form");
 				console.log($( event.target.form ).find( ".leadSpendEmail" ));
-				$( event.target.form ).find( ".leadSpendEmail" ).trigger( "change" );
+				$( event.target.form ).find( ".leadSpendEmail" ).trigger( "focusout" );
 			});
 	});
 }( jQuery ) );
