@@ -59,7 +59,6 @@
 
 		$( ".leadSpendEmail-result" ).on( "change", function( event ){
 				if($(".leadSpendEmail-result").val() != "pending"){
-					console.log( "Revalidating field" );
 					$( event.target.form ).find( ".leadSpendEmail" ).trigger( "focusout" );
 				}
 			});
