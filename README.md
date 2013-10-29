@@ -18,7 +18,7 @@ Include jquery:
 Import jquery-leadspendemailvalidation:
 
 ```html
- <script type="text/javascript" src="../../jquery.leadspendemail-0.1.js"></script>
+ <script type="text/javascript" src="../../jquery.leadspendemail.js"></script>
 ```
 
 Add the class "leadSpendEmail-noconfig" to the email input on your form:
