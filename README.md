@@ -20,7 +20,7 @@ Include jquery:
  <script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.js"></script>
 ```
 
-Import jquery-leadspendemailvalidation:
+Import jquery-leadspendemail:
 
 ```html
  <script type="text/javascript" src="../../jquery.leadspendemail.js"></script>
