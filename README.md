@@ -29,7 +29,7 @@ Import jquery-leadspendemail:
 Add the class "leadSpendEmail-noconfig" to the email input on your form:
 
 ```html
- <input id="..." class="leadSpendEmail-noconfig" name="email-input">
+ <input class="leadSpendEmail-noconfig" name="email-input">
 ```
 
 The LeadSpend result will appear in a hidden input on your form, available to use with your current form validation.
