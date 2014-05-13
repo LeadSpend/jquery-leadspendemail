@@ -1,6 +1,6 @@
 /*!
  * jQuery Validate LeadSpend Email Validation config and auto-start
- * jquery.validate.leadspendemail-0.1.js
+ * jquery.validate.leadspendemail-0.3.js
  * 
  * Original author: @this-sam, @leadspend
  * Kudos to: @jtnotat
@@ -59,7 +59,7 @@
 				},
 			});
 		});
-		
+
 		$( ".leadSpendEmail-result" ).on( "change", function( event ){
 				if($(this).val() != "pending"){
 					$( event.target.form ).find( ".leadSpendEmail" ).trigger( "focusout" );
