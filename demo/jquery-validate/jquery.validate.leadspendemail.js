@@ -52,13 +52,14 @@
 		$( ".leadSpendEmail" ).each(function(){
 			var emailField = $(this);
 			emailField.closest( "form" ).validate({
-			invalidHandler : function( event, validator ) {
-				if($( emailField ).siblings( ".leadSpendEmail-result" ).val() == "pending"){
-					return true;
-				}
-			},
+				invalidHandler : function( event, validator ) {
+					if($( emailField ).siblings( ".leadSpendEmail-result" ).val() == "pending"){
+						return true;
+					};
+				},
+			});
 		});
-
+		
 		$( ".leadSpendEmail-result" ).on( "change", function( event ){
 				if($(this).val() != "pending"){
 					$( event.target.form ).find( ".leadSpendEmail" ).trigger( "focusout" );
