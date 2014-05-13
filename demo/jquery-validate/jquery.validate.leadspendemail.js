@@ -49,12 +49,6 @@
 	
 	// automatically initialize this on any forms with leadSpendEmail.  Defaults can still be updated after this.
 	$( document ).ready( function(){
-
-		$( ".leadSpendEmail").each(function(){
-			
-				emailField.closest("form").validate();
-			});
-
 		$( ".leadSpendEmail" ).each(function(){
 			var emailField = $(this);
 			emailField.closest( "form" ).validate({

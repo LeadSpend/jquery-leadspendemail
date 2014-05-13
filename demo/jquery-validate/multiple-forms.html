@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Validate Zero Config | LeadSpendEmail jQuery Plugin Demo</title>
+		
+		<!-- Requires jQuery and jQuery Validate -->
+		<script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.js"></script>
+		<script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
+		
+		<!-- LeadSpendEmail Plugin include -->
+		<script type="text/javascript" src="../../jquery.leadspendemail.js"></script>
+		
+		<!-- jQuery Validate automatic configuration and initialization include -->
+		<script type="text/javascript" src="jquery.validate.leadspendemail.js"></script>
+	</head>
+	<body>
+		<form id="demo-form-id-1">
+			<p>
+				<label>Name:</label>
+				<input id="name-input-id-1" class="required" name="name-input-name-1" value="">
+			</p>
+			<p>
+				<label>Email Address:</label>
+				<input id="email-input-id-1" class="required leadSpendEmail-noconfig" name="email-input-name-1">
+			</p>
+			<input type="submit" name="submit">
+		</form>
+		<form id="demo-form-id-2">
+			<p>
+				<label>Name:</label>
+				<input id="name-input-id-2" class="required" name="name-input-name-2" value="">
+			</p>
+			<p>
+				<label>Email Address:</label>
+				<input id="email-input-id-2" class="required leadSpendEmail-noconfig" name="email-input-name-2">
+			</p>
+			<input type="submit" name="submit">
+		</form>
+	</body>
+</html>
