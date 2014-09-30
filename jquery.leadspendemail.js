@@ -28,9 +28,9 @@
 		this._name = pluginName;
 		
 		// this.apiUrl = "https://primary.api.leadspend.com/v2/validity/";
-		//this.apiUrl = "https://portal.dev.leadspend.com/api/v2/validity/";
+		this.apiUrl = "https://portal.dev.leadspend.com/api/v2/validity/";
 		// this.apiUrl = "https://api2.qasemail.qas.com/v2/validity/";
-        this.apiUrl = "https://stgapi.qasemail.qas.com/api/v2/validity/";
+        // this.apiUrl = "https://stgapi.qasemail.qas.com/api/v2/validity/";
 
 		// Actual jsonp call to the LeadSpend API
 		this._jsonpValidateEmail = function( emailAddress ) {
