@@ -41,7 +41,7 @@
 				success: $.proxy( this._jsonpValidateEmailDone, this )
 				error: $.proxy( this._jsonpValidateEmailFail, this ),
 				timeout: this._defaults.timeout*1000 + 500
-				}
+				});
 		};
 		
 		// Called on completion of jsonp email validation call (to be called using $.proxy for proper context)
