@@ -34,9 +34,14 @@
 
 		// Actual jsonp call to the LeadSpend API
 		this._jsonpValidateEmail = function( emailAddress ) {
-			$.getJSON( this.apiUrl + encodeURIComponent( emailAddress ) + "?timeout=" + this.options.timeout + "&callback=?", null )
-				.done( $.proxy( this._jsonpValidateEmailDone, this ) )
-				.fail( $.proxy( this._jsonpValidateEmailFail, this ) );
+			$.ajax({
+				url: this.apiUrl + encodeURIComponent( emailAddress ) + "?timeout=" + this.options.timeout,
+				dataType: "jsonp",
+				crossDomain: true,
+				success: $.proxy( this._jsonpValidateEmailDone, this )
+				error: $.proxy( this._jsonpValidateEmailFail, this ),
+				timeout: this._defaults.timeout*1000 + 500
+				}
 		};
 		
 		// Called on completion of jsonp email validation call (to be called using $.proxy for proper context)
