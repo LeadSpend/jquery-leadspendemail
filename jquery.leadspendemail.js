@@ -38,7 +38,7 @@
 				url: this.apiUrl + encodeURIComponent( emailAddress ) + "?timeout=" + this.options.timeout,
 				dataType: "jsonp",
 				crossDomain: true,
-				success: $.proxy( this._jsonpValidateEmailDone, this )
+				success: $.proxy( this._jsonpValidateEmailDone, this ),
 				error: $.proxy( this._jsonpValidateEmailFail, this ),
 				timeout: this._defaults.timeout*1000 + 500
 				});
