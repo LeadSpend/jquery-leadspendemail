@@ -1,9 +1,8 @@
 /*!
  * LeadSpend Email Validation jQuery Plugin
- * jquery.leadspendemail version 0.2
+ * jquery.leadspendemail version 0.3
  * 
  * Original author: @this-sam, @leadspend
- * Kudos to: @jtnotat
  * Licensed under the MIT license
  *
  * Requires jQuery
