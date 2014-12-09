@@ -1,6 +1,6 @@
 /*!
  * LeadSpend Email Validation jQuery Plugin
- * jquery.leadspendemail version 0.2
+ * jquery.leadspendemail version 0.3
  * 
  * Original author: @this-sam, @leadspend
  * Kudos to: @jtnotat
@@ -14,8 +14,8 @@
 	var pluginName = 'leadSpendEmail',
 	defaults = {
 		timeout: 5,
-		debug: false,
-		delaySubmit: true, // note: true expects a well-formed form! (i.e. email input and submit button inside form element)
+		debug: false,		// Warning: enables console.log, which may cause issues with older browsers
+		delaySubmit: true, 	// True expects a well-formed form! (i.e. target input inside form tags, which also contain the submit input)
 		resultCallback: null
 	};
 	
@@ -131,7 +131,8 @@
 				$( this.resultElement ).trigger( "change" );
 
 				// Trigger focusout event for email address field 
-				// $( this.element ).trigger( "focusout" );
+				$( this.element ).trigger( "focusout" );
+				
 				// TODO: trigger other events? 
 				
 				// call the resultCallback (if it has been set)
@@ -235,5 +236,5 @@
 
 // Validate all leadSpendEmail fields by default
 $( document ).ready( function(){
-	$( ".leadSpendEmail-noconfig" ).leadSpendEmail( {debug: true, timeout: 5} );
+	$( ".leadSpendEmail-noconfig" ).leadSpendEmail( {debug: false, timeout: 5} );
 } );
