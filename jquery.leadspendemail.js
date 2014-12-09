@@ -132,7 +132,7 @@
 
 				// Trigger focusout event for email address field 
 				$( this.element ).trigger( "focusout" );
-				
+
 				// TODO: trigger other events? 
 				
 				// call the resultCallback (if it has been set)
@@ -236,5 +236,5 @@
 
 // Validate all leadSpendEmail fields by default
 $( document ).ready( function(){
-	$( ".leadSpendEmail-noconfig" ).leadSpendEmail( {debug: false, timeout: 5} );
+	$( ".leadSpendEmail-noconfig" ).leadSpendEmail( {debug: true, timeout: 5} );
 } );
