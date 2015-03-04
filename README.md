@@ -115,8 +115,8 @@ Included in the demo folder are a variety of pages which demostrate usage of the
 #### Standalone
 Various configurations of the plugin, by itself.  This is the place to start if you plan on using the plugin with your existing front-end or server-side form validation.
 
-* [automatic.html](https://github.com/this-sam/jquery-leadspendemail/blob/master/demo/standalone/automatic.html): Fully-automatic, out of the box configuration.  Automatially delays form submission until the API result has returned.
-* [custom.html](https://github.com/this-sam/jquery-leadspendemail/blob/master/demo/standalone/custom.html): Demonstrates passing basic configurations to the plugin, such as debugging, timeout and turning off delaySubmit.
+* [automatic.html](https://github.com/leadspend/jquery-leadspendemail/blob/master/demo/standalone/automatic.html): Fully-automatic, out of the box configuration.  Automatially delays form submission until the API result has returned.
+* [custom.html](https://github.com/leadspend/jquery-leadspendemail/blob/master/demo/standalone/custom.html): Demonstrates passing basic configurations to the plugin, such as debugging, timeout and turning off delaySubmit.
 
 #### jQuery Validate
 Demonstrates the use of the plugin in conjunction with jQuery Validate.  If you have no existing validation on your form or would like to quickly add very good
