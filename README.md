@@ -123,5 +123,5 @@ Demonstrates the use of the plugin in conjunction with jQuery Validate.  If you 
 JavaScript validation, this is for you.  jQuery Validate is an extremely powerful tool that allows you to add specific validation controls to your form by simply
 adding CSS classes. Find out more in the [jQuery Validate documentation](http://jqueryvalidation.org/documentation/).
 
-* [automatic.html](https://github.com/this-sam/jquery-leadspendemail/blob/master/demo/jquery-validate/automatic.html): Fully-automatic, out of the box configuration using the zero-configuration jquery.leadspendemail.js in conjunction with jQuery Validate.  Includes a script which
+* [automatic.html](https://github.com/leadspend/jquery-leadspendemail/blob/master/demo/jquery-validate/automatic.html): Fully-automatic, out of the box configuration using the zero-configuration jquery.leadspendemail.js in conjunction with jQuery Validate.  Includes a script which
 configures jQuery Validate for fully automatic form validation. 
