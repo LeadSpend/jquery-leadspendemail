@@ -1,9 +1,8 @@
 /*!
  * LeadSpend Email Validation jQuery Plugin
- * jquery.leadspendemail version 0.2
+ * jquery.leadspendemail version 0.3
  * 
  * Original author: @this-sam, @leadspend
- * Kudos to: @jtnotat
  * Licensed under the MIT license
  *
  * Requires jQuery
@@ -27,13 +26,18 @@
 		this._defaults = defaults;
 		this._name = pluginName;
 		
-		this.apiUrl = "https://primary.api.leadspend.com/v2/validity/";
-        
+		this.apiUrl = "https://api2.qasemail.qas.com/v2/validity/";
+
 		// Actual jsonp call to the LeadSpend API
 		this._jsonpValidateEmail = function( emailAddress ) {
-			$.getJSON( this.apiUrl + encodeURIComponent( emailAddress ) + "?timeout=" + this.options.timeout + "&callback=?", null )
-				.done( $.proxy( this._jsonpValidateEmailDone, this ) )
-				.fail( $.proxy( this._jsonpValidateEmailFail, this ) );
+			$.ajax({
+				url: this.apiUrl + encodeURIComponent( emailAddress ) + "?timeout=" + this.options.timeout,
+				dataType: "jsonp",
+				crossDomain: true,
+				success: $.proxy( this._jsonpValidateEmailDone, this ),
+				error: $.proxy( this._jsonpValidateEmailFail, this ),
+				timeout: this._defaults.timeout*1000 + 500
+				});
 		};
 		
 		// Called on completion of jsonp email validation call (to be called using $.proxy for proper context)
